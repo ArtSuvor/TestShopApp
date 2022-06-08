@@ -97,12 +97,9 @@
 		6EA79A6E284FDC8D00FBEFB9 /* TestShopApp */ = {
 			isa = PBXGroup;
 			children = (
-				6EA79A6F284FDC8D00FBEFB9 /* AppDelegate.swift */,
-				6EA79A71284FDC8D00FBEFB9 /* SceneDelegate.swift */,
-				6EA79A73284FDC8D00FBEFB9 /* ViewController.swift */,
-				6EA79A78284FDC8F00FBEFB9 /* Assets.xcassets */,
-				6EA79A7A284FDC8F00FBEFB9 /* LaunchScreen.storyboard */,
-				6EA79A7D284FDC8F00FBEFB9 /* Info.plist */,
+				6EA79AA2284FE2AC00FBEFB9 /* Core */,
+				6EA79AA3284FE2BE00FBEFB9 /* App */,
+				6EA79AA4284FE2C900FBEFB9 /* Resources */,
 			);
 			path = TestShopApp;
 			sourceTree = "<group>";
@@ -122,6 +119,65 @@
 				6EA79A92284FDC8F00FBEFB9 /* TestShopAppUITestsLaunchTests.swift */,
 			);
 			path = TestShopAppUITests;
+			sourceTree = "<group>";
+		};
+		6EA79A9F284FE25C00FBEFB9 /* BusinessLogic */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = BusinessLogic;
+			sourceTree = "<group>";
+		};
+		6EA79AA0284FE27000FBEFB9 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		6EA79AA1284FE28500FBEFB9 /* Assembly */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Assembly;
+			sourceTree = "<group>";
+		};
+		6EA79AA2284FE2AC00FBEFB9 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		6EA79AA3284FE2BE00FBEFB9 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				6EA79A6F284FDC8D00FBEFB9 /* AppDelegate.swift */,
+				6EA79A71284FDC8D00FBEFB9 /* SceneDelegate.swift */,
+				6EA79AA5284FE36200FBEFB9 /* Flows */,
+				6EA79AA1284FE28500FBEFB9 /* Assembly */,
+				6EA79AA0284FE27000FBEFB9 /* Entity */,
+				6EA79A9F284FE25C00FBEFB9 /* BusinessLogic */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		6EA79AA4284FE2C900FBEFB9 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				6EA79A7D284FDC8F00FBEFB9 /* Info.plist */,
+				6EA79A7A284FDC8F00FBEFB9 /* LaunchScreen.storyboard */,
+				6EA79A78284FDC8F00FBEFB9 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		6EA79AA5284FE36200FBEFB9 /* Flows */ = {
+			isa = PBXGroup;
+			children = (
+				6EA79A73284FDC8D00FBEFB9 /* ViewController.swift */,
+			);
+			path = Flows;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -427,7 +483,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 7BMH97S98D;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = TestShopApp/Info.plist;
+				INFOPLIST_FILE = TestShopApp/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -454,7 +510,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 7BMH97S98D;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = TestShopApp/Info.plist;
+				INFOPLIST_FILE = TestShopApp/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
