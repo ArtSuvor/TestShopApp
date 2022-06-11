@@ -12,6 +12,9 @@ class AuthViewController: UIViewController {
 // MARK: - UI -
     private let loginView: LoginView = LoginView()
     
+// MARK: - Properties -
+    var output: AuthViewOutput!
+    
 // MARK: - Life cycle -
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,4 +43,8 @@ extension AuthViewController: LoginViewOutput {
     var passwordText: (String) -> Void {
         { print($0) }
     }
+}
+
+extension AuthViewController: AuthViewInput {
+    
 }
