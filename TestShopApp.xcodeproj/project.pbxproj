@@ -7,9 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6E0414C72854D90100CD62FE /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 6E0414C62854D90100CD62FE /* Alamofire */; };
+		6E0414CB2854DC9700CD62FE /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E0414CA2854DC9700CD62FE /* LoginView.swift */; };
 		6EA79A70284FDC8D00FBEFB9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EA79A6F284FDC8D00FBEFB9 /* AppDelegate.swift */; };
 		6EA79A72284FDC8D00FBEFB9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EA79A71284FDC8D00FBEFB9 /* SceneDelegate.swift */; };
-		6EA79A74284FDC8D00FBEFB9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EA79A73284FDC8D00FBEFB9 /* ViewController.swift */; };
+		6EA79A74284FDC8D00FBEFB9 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EA79A73284FDC8D00FBEFB9 /* AuthViewController.swift */; };
 		6EA79A79284FDC8F00FBEFB9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6EA79A78284FDC8F00FBEFB9 /* Assets.xcassets */; };
 		6EA79A7C284FDC8F00FBEFB9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6EA79A7A284FDC8F00FBEFB9 /* LaunchScreen.storyboard */; };
 		6EA79A87284FDC8F00FBEFB9 /* TestShopAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EA79A86284FDC8F00FBEFB9 /* TestShopAppTests.swift */; };
@@ -35,10 +37,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6E0414CA2854DC9700CD62FE /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		6EA79A6C284FDC8D00FBEFB9 /* TestShopApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestShopApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6EA79A6F284FDC8D00FBEFB9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6EA79A71284FDC8D00FBEFB9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		6EA79A73284FDC8D00FBEFB9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		6EA79A73284FDC8D00FBEFB9 /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
 		6EA79A78284FDC8F00FBEFB9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6EA79A7B284FDC8F00FBEFB9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6EA79A7D284FDC8F00FBEFB9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -54,6 +57,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6E0414C72854D90100CD62FE /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,6 +78,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6E0414C82854DB9A00CD62FE /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				6E0414C92854DC7E00CD62FE /* Views */,
+				6EA79A73284FDC8D00FBEFB9 /* AuthViewController.swift */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		6E0414C92854DC7E00CD62FE /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				6E0414CA2854DC9700CD62FE /* LoginView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		6EA79A63284FDC8D00FBEFB9 = {
 			isa = PBXGroup;
 			children = (
@@ -175,7 +196,7 @@
 		6EA79AA5284FE36200FBEFB9 /* Flows */ = {
 			isa = PBXGroup;
 			children = (
-				6EA79A73284FDC8D00FBEFB9 /* ViewController.swift */,
+				6E0414C82854DB9A00CD62FE /* Auth */,
 			);
 			path = Flows;
 			sourceTree = "<group>";
@@ -196,6 +217,9 @@
 			dependencies = (
 			);
 			name = TestShopApp;
+			packageProductDependencies = (
+				6E0414C62854D90100CD62FE /* Alamofire */,
+			);
 			productName = TestShopApp;
 			productReference = 6EA79A6C284FDC8D00FBEFB9 /* TestShopApp.app */;
 			productType = "com.apple.product-type.application";
@@ -268,6 +292,9 @@
 				Base,
 			);
 			mainGroup = 6EA79A63284FDC8D00FBEFB9;
+			packageReferences = (
+				6E0414C52854D90100CD62FE /* XCRemoteSwiftPackageReference "Alamofire" */,
+			);
 			productRefGroup = 6EA79A6D284FDC8D00FBEFB9 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -310,8 +337,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6EA79A74284FDC8D00FBEFB9 /* ViewController.swift in Sources */,
+				6EA79A74284FDC8D00FBEFB9 /* AuthViewController.swift in Sources */,
 				6EA79A70284FDC8D00FBEFB9 /* AppDelegate.swift in Sources */,
+				6E0414CB2854DC9700CD62FE /* LoginView.swift in Sources */,
 				6EA79A72284FDC8D00FBEFB9 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -644,6 +672,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		6E0414C52854D90100CD62FE /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		6E0414C62854D90100CD62FE /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6E0414C52854D90100CD62FE /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 6EA79A64284FDC8D00FBEFB9 /* Project object */;
 }
