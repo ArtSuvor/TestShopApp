@@ -7,14 +7,27 @@
 //
 
 import Foundation
+import Alamofire
 
 final class AuthInteractor {
     weak var output: AuthInteractorOutput!
+    private let operation: AuthDataOperation!
 
-    init() {
+    init(operation: AuthDataOperation) {
+        self.operation = operation
     }
 }
 
 // MARK: - AuthInteractorInput
 extension AuthInteractor: AuthInteractorInput {
+    func signIn(login: String, password: String) {
+        operation.login(login: login, password: password) {[weak self] result in
+            switch result {
+                case let .success(user):
+                    print(user)
+                case let .failure(error):
+                    print(error)
+            }
+        }
+    }
 }

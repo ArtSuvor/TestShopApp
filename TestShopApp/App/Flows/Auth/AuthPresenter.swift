@@ -11,13 +11,29 @@ import Foundation
 final class AuthPresenter {
     weak var view: AuthViewInput!
     var interactor: AuthInteractorInput!
+    
+    private var loginText: String?
+    private var passwordText: String?
 
     init() { }
 }
 
 // MARK: - AuthViewOutput
 extension AuthPresenter: AuthViewOutput {
+    func signIn() {
+        guard let login = self.loginText,
+              let password = self.passwordText else { return }
+        
+        interactor.signIn(login: login, password: password)
+    }
     
+    func loginChanged(text: String) {
+        self.loginText = text
+    }
+    
+    func passwordChanged(text: String) {
+        self.passwordText = text
+    }
 }
 
 // MARK: - AuthInteractorOutput

@@ -24,7 +24,13 @@ extension DI {
 extension DI {
     private func makeViewController(flow: Flows) -> UIViewController {
         switch flow {
-            case .auth: return AuthAssembly.assemble().view
+            case .auth:
+                let operation = makeAuthDataOperations()
+                return AuthAssembly.assemble(operation: operation).view
         }
+    }
+    
+    private func makeAuthDataOperations() -> AuthDataOperation {
+        AuthDataOperationImpl()
     }
 }

@@ -10,6 +10,9 @@ import UIKit
 protocol LoginViewOutput: AnyObject {
     var loginText: (String) -> Void { get }
     var passwordText: (String) -> Void { get }
+    
+    func signInTapped()
+    func signUpTapped()
 }
 
 final class LoginView: UIView {
@@ -108,6 +111,7 @@ final class LoginView: UIView {
         
         self.setupShadow()
         self.setDelegate()
+        self.setupTargets()
         self.addingSubviews(backView: backView, views: [loginTitleLabel, loginTextField, passwordTitleLabel, passwordTextField, signInButton, signUpButton])
     }
     
@@ -127,6 +131,20 @@ final class LoginView: UIView {
     private func setDelegate() {
         loginTextField.delegate = self
         passwordTextField.delegate = self
+    }
+
+// MARK: - Targets -
+    private func setupTargets() {
+        signInButton.addTarget(self, action: #selector(signInButtonTapped), for: .touchUpInside)
+        signUpButton.addTarget(self, action: #selector(signUpButtonTapped), for: .touchUpInside)
+    }
+    
+    @objc func signInButtonTapped() {
+        self.delegate?.signInTapped()
+    }
+    
+    @objc private func signUpButtonTapped() {
+        self.delegate?.signUpTapped()
     }
 }
 

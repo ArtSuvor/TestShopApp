@@ -37,11 +37,19 @@ class AuthViewController: UIViewController {
 // MARK: - LoginViewOutput -
 extension AuthViewController: LoginViewOutput {
     var loginText: (String) -> Void {
-        { print($0) }
+        { self.output.loginChanged(text: $0) }
     }
     
     var passwordText: (String) -> Void {
-        { print($0) }
+        { self.output.passwordChanged(text: $0) }
+    }
+    
+    func signInTapped() {
+        self.output.signIn()
+    }
+    
+    func signUpTapped() {
+        print("Up")
     }
 }
 

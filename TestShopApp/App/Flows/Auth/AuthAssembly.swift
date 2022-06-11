@@ -15,10 +15,10 @@ final class AuthAssembly {
         self.view = view
     }
 
-    static func assemble() -> AuthAssembly {
+    static func assemble(operation: AuthDataOperation) -> AuthAssembly {
         let view = AuthViewController()
         let presenter = AuthPresenter()
-        let interactor = AuthInteractor()
+        let interactor = AuthInteractor(operation: operation)
         
         view.output = presenter
         presenter.view = view

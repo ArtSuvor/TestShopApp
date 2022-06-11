@@ -10,6 +10,7 @@ import Foundation
 
 // MARK: Interactor
 protocol AuthInteractorInput: AnyObject {
+    func signIn(login: String, password: String)
 }
 
 protocol AuthInteractorOutput: AnyObject {
@@ -20,5 +21,7 @@ protocol AuthViewInput: AnyObject {
 }
 
 protocol AuthViewOutput: AnyObject {
-    
+    func signIn()
+    func loginChanged(text: String)
+    func passwordChanged(text: String)
 }
