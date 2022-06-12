@@ -30,14 +30,13 @@ extension AuthPresenter: AuthViewOutput {
               let password = self.passwordText else { return }
         //проверка правильность почты и пароля
         
-        interactor.signIn(login: login, password: password)
+        self.interactor.signIn(login: login, password: password)
     }
     
     func register() {
         guard let userName = self.loginText,
               let password = self.passwordText,
               let email = self.emailText,
-              let gender = self.genderText,
               let card = self.cardText,
               let bio = self.bioText else { return }
         //проверка на обязательные поля
@@ -46,7 +45,7 @@ extension AuthPresenter: AuthViewOutput {
                                               userName: userName,
                                               password: password,
                                               email: email,
-                                              gender: gender,
+                                              gender: genderText ?? "Male",
                                               creditCard: card,
                                               bio: bio)
         self.interactor.signUp(request: registerRequest)
@@ -86,5 +85,9 @@ extension AuthPresenter: AuthInteractorOutput {
     func didRegister() {
         self.isLoginView.toggle()
         self.view.changedStateView(isLoginView: isLoginView)
+    }
+    
+    func didLogin() {
+        self.view.showProfileView()
     }
 }

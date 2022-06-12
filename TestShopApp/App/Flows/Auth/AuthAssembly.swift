@@ -15,8 +15,8 @@ final class AuthAssembly {
         self.view = view
     }
 
-    static func assemble(operation: AuthDataOperation) -> AuthAssembly {
-        let view = AuthViewController()
+    static func assemble(operation: AuthDataOperation, di: DI) -> AuthAssembly {
+        let view = AuthViewController(di: di)
         let presenter = AuthPresenter()
         let interactor = AuthInteractor(operation: operation)
         

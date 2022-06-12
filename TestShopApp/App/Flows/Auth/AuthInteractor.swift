@@ -25,6 +25,7 @@ extension AuthInteractor: AuthInteractorInput {
             switch result {
                 case let .success(user):
                     print(user)
+                    self?.output.didLogin()
                 case let .failure(error):
                     print(error.localizedDescription)
             }
@@ -32,7 +33,6 @@ extension AuthInteractor: AuthInteractorInput {
     }
     
     func signUp(request: RegisterRequest) {
-        print(request)
         operation.register(request: request) {[weak self] result in
             switch result {
                 case .success:

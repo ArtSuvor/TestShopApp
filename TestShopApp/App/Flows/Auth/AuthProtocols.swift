@@ -16,11 +16,13 @@ protocol AuthInteractorInput: AnyObject {
 
 protocol AuthInteractorOutput: AnyObject {
     func didRegister()
+    func didLogin()
 }
 
 // MARK: View Controller
 protocol AuthViewInput: AnyObject {
     func changedStateView(isLoginView: Bool)
+    func showProfileView()
 }
 
 protocol AuthViewOutput: AnyObject {

@@ -11,12 +11,17 @@ final class DI {
     var authViewController: UIViewController {
         makeViewController(flow: .auth)
     }
+    
+    var profileViewController: UIViewController {
+        makeViewController(flow: .profile)
+    }
 }
 
 // MARK: - Private enum -
 extension DI {
     private enum Flows {
         case auth
+        case profile
     }
 }
 
@@ -26,7 +31,9 @@ extension DI {
         switch flow {
             case .auth:
                 let operation = makeAuthDataOperations()
-                return AuthAssembly.assemble(operation: operation).view
+                return AuthAssembly.assemble(operation: operation, di: self).view
+            case .profile:
+                return ProfileAssembly.assemble(di: self).view
         }
     }
     
