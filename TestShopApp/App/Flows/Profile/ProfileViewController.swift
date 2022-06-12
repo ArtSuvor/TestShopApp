@@ -26,11 +26,29 @@ final class ProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .red
+        self.setupNavigationBar()
     }
     
+    private func setupNavigationBar() {
+        let rightButton = UIBarButtonItem(image: UIImage(systemName: "rectangle.portrait.and.arrow.right"),
+                                          style: .plain,
+                                          target: self,
+                                          action: #selector(rightNavButtonTapped))
+        navigationItem.rightBarButtonItem = rightButton
+        navigationItem.rightBarButtonItem?.tintColor = .black
+        navigationItem.title = "PROFILE"
+    }
+    
+    @objc private func rightNavButtonTapped() {
+        self.output.logout()
+    }
 }
 
 // MARK: - ProfileViewInput -
 extension ProfileViewController: ProfileViewInput {
-    
+    func showAuthVC() {
+        let vc = di.authViewController
+        vc.modalPresentationStyle = .fullScreen
+        self.present(vc, animated: true)
+    }
 }

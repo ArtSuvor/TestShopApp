@@ -10,11 +10,23 @@ import Foundation
 
 final class ProfileInteractor {
     weak var output: ProfileInteractorOutput!
+    private let operation: AuthDataOperation!
 
-    init() {
+    init(operation: AuthDataOperation) {
+        self.operation = operation
     }
 }
 
 // MARK: - ProfileInteractorInput
 extension ProfileInteractor: ProfileInteractorInput {
+    func logout(userId: Int) {
+        operation.logout(userId: userId) {[weak self] result in
+            switch result {
+                case .success:
+                    self?.output.didLogout()
+                case let .failure(error):
+                    print(error.localizedDescription)
+            }
+        }
+    }
 }

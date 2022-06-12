@@ -35,7 +35,15 @@ final class AuthDataOperationImpl: AuthDataOperation {
     
 // MARK: - Logout -
     func logout(userId: Int, completion: @escaping (Result<Void, Error>) -> Void) {
-        
+        let request = LogoutRequestOperation(userId: userId)
+        let parse = LogoutParseOperation { result in
+            OperationQueue.main.addOperation {
+                completion(result)
+            }
+        }
+        let operations = [request, parse]
+        parse.addDependency(request)
+        operationQueue.addOperations(operations, waitUntilFinished: false)
     }
     
 // MARK: - Register -

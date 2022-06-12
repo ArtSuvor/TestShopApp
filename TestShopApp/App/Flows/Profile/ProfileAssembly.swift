@@ -15,10 +15,10 @@ final class ProfileAssembly {
         self.view = view
     }
 
-    static func assemble(di: DI) -> ProfileAssembly {
+    static func assemble(operation: AuthDataOperation, di: DI) -> ProfileAssembly {
         let view = ProfileViewController(di: di)
         let presenter = ProfilePresenter()
-        let interactor = ProfileInteractor()
+        let interactor = ProfileInteractor(operation: operation)
 
         view.output = presenter
         presenter.view = view

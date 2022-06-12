@@ -15,6 +15,10 @@ final class DI {
     var profileViewController: UIViewController {
         makeViewController(flow: .profile)
     }
+    
+    var authDataOperations: AuthDataOperation {
+        makeAuthDataOperations()
+    }
 }
 
 // MARK: - Private enum -
@@ -25,18 +29,19 @@ extension DI {
     }
 }
 
-// MARK: - Private methods -
 extension DI {
+// MARK: - Make View Controllers -
     private func makeViewController(flow: Flows) -> UIViewController {
         switch flow {
             case .auth:
-                let operation = makeAuthDataOperations()
-                return AuthAssembly.assemble(operation: operation, di: self).view
+                return AuthAssembly.assemble(operation: self.authDataOperations, di: self).view
             case .profile:
-                return ProfileAssembly.assemble(di: self).view
+                let vc = ProfileAssembly.assemble(operation: self.authDataOperations, di: self).view
+                return UINavigationController(rootViewController: vc)
         }
     }
     
+// MARK: - Make Operations -
     private func makeAuthDataOperations() -> AuthDataOperation {
         AuthDataOperationImpl()
     }

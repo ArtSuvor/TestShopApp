@@ -10,15 +10,18 @@ import Foundation
 
 // MARK: Interactor
 protocol ProfileInteractorInput: AnyObject {
+    func logout(userId: Int)
 }
 
 protocol ProfileInteractorOutput: AnyObject {
+    func didLogout()
 }
 
 // MARK: View Controller
 protocol ProfileViewInput: AnyObject {
+    func showAuthVC()
 }
 
 protocol ProfileViewOutput: AnyObject {
-    
+    func logout()
 }

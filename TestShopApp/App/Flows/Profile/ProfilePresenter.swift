@@ -17,9 +17,14 @@ final class ProfilePresenter {
 
 // MARK: - ProfileViewOutput
 extension ProfilePresenter: ProfileViewOutput {
-   
+    func logout() {
+        interactor.logout(userId: 123)
+    }
 }
 
 // MARK: - ProfileInteractorOutput
 extension ProfilePresenter: ProfileInteractorOutput {
+    func didLogout() {
+        self.view.showAuthVC()
+    }
 }

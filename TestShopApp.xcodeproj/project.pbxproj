@@ -29,6 +29,8 @@
 		6E0415042856220C00CD62FE /* ProfileProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E0414FE2856220C00CD62FE /* ProfileProtocols.swift */; };
 		6E0415052856220C00CD62FE /* ProfileAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E0414FF2856220C00CD62FE /* ProfileAssembly.swift */; };
 		6E0415062856220C00CD62FE /* ProfileInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E0415002856220C00CD62FE /* ProfileInteractor.swift */; };
+		6E04150928562BBA00CD62FE /* LogoutRequestOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E04150828562BBA00CD62FE /* LogoutRequestOperation.swift */; };
+		6E04150B28562C3C00CD62FE /* LogoutParseOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E04150A28562C3C00CD62FE /* LogoutParseOperation.swift */; };
 		6EA79A70284FDC8D00FBEFB9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EA79A6F284FDC8D00FBEFB9 /* AppDelegate.swift */; };
 		6EA79A72284FDC8D00FBEFB9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EA79A71284FDC8D00FBEFB9 /* SceneDelegate.swift */; };
 		6EA79A74284FDC8D00FBEFB9 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EA79A73284FDC8D00FBEFB9 /* AuthViewController.swift */; };
@@ -78,6 +80,8 @@
 		6E0414FE2856220C00CD62FE /* ProfileProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileProtocols.swift; sourceTree = "<group>"; };
 		6E0414FF2856220C00CD62FE /* ProfileAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileAssembly.swift; sourceTree = "<group>"; };
 		6E0415002856220C00CD62FE /* ProfileInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileInteractor.swift; sourceTree = "<group>"; };
+		6E04150828562BBA00CD62FE /* LogoutRequestOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutRequestOperation.swift; sourceTree = "<group>"; };
+		6E04150A28562C3C00CD62FE /* LogoutParseOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutParseOperation.swift; sourceTree = "<group>"; };
 		6EA79A6C284FDC8D00FBEFB9 /* TestShopApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestShopApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6EA79A6F284FDC8D00FBEFB9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6EA79A71284FDC8D00FBEFB9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -168,6 +172,7 @@
 		6E0414DF2854FA6700CD62FE /* AuthOperation */ = {
 			isa = PBXGroup;
 			children = (
+				6E04150728562B9B00CD62FE /* Logout */,
 				6E0414F32856179400CD62FE /* Register */,
 				6E0414EA2854FFCB00CD62FE /* Login */,
 				6E0414EB2854FFDF00CD62FE /* AuthDataOperation.swift */,
@@ -227,6 +232,15 @@
 				6E0415002856220C00CD62FE /* ProfileInteractor.swift */,
 			);
 			path = Profile;
+			sourceTree = "<group>";
+		};
+		6E04150728562B9B00CD62FE /* Logout */ = {
+			isa = PBXGroup;
+			children = (
+				6E04150828562BBA00CD62FE /* LogoutRequestOperation.swift */,
+				6E04150A28562C3C00CD62FE /* LogoutParseOperation.swift */,
+			);
+			path = Logout;
 			sourceTree = "<group>";
 		};
 		6EA79A63284FDC8D00FBEFB9 = {
@@ -495,6 +509,8 @@
 				6E0415042856220C00CD62FE /* ProfileProtocols.swift in Sources */,
 				6E0415052856220C00CD62FE /* ProfileAssembly.swift in Sources */,
 				6EA79A72284FDC8D00FBEFB9 /* SceneDelegate.swift in Sources */,
+				6E04150928562BBA00CD62FE /* LogoutRequestOperation.swift in Sources */,
+				6E04150B28562C3C00CD62FE /* LogoutParseOperation.swift in Sources */,
 				6E0414F02855FAC900CD62FE /* RegisterRequest.swift in Sources */,
 				6E0415022856220C00CD62FE /* ProfilePresenter.swift in Sources */,
 				6E0414F5285617AE00CD62FE /* RegisterRequestOperation.swift in Sources */,
