@@ -28,6 +28,7 @@ extension AuthPresenter: AuthViewOutput {
     func signIn() {
         guard let login = self.loginText,
               let password = self.passwordText else { return }
+        //проверка правильность почты и пароля
         
         interactor.signIn(login: login, password: password)
     }
@@ -39,6 +40,7 @@ extension AuthPresenter: AuthViewOutput {
               let gender = self.genderText,
               let card = self.cardText,
               let bio = self.bioText else { return }
+        //проверка на обязательные поля
         
         let registerRequest = RegisterRequest(userId: Int.random(in: 0...1000),
                                               userName: userName,
