@@ -100,19 +100,21 @@ final class LoginView: UIView {
     
 // MARK: - Set Views -
     private func setViews() {
+        let views = [loginTitleLabel,
+                     loginTextField,
+                     passwordTitleLabel,
+                     passwordTextField,
+                     signInButton,
+                     signUpButton]
+        
         self.translatesAutoresizingMaskIntoConstraints = false
-        backView.translatesAutoresizingMaskIntoConstraints = false
-        loginTitleLabel.translatesAutoresizingMaskIntoConstraints = false
-        loginTextField.translatesAutoresizingMaskIntoConstraints = false
-        passwordTitleLabel.translatesAutoresizingMaskIntoConstraints = false
-        passwordTextField.translatesAutoresizingMaskIntoConstraints = false
-        signInButton.translatesAutoresizingMaskIntoConstraints = false
-        signUpButton.translatesAutoresizingMaskIntoConstraints = false
+        self.backView.translatesAutoresizingMaskIntoConstraints = false
+        views.forEach { $0.translatesAutoresizingMaskIntoConstraints = false }
         
         self.setupShadow()
         self.setDelegate()
         self.setupTargets()
-        self.addingSubviews(backView: backView, views: [loginTitleLabel, loginTextField, passwordTitleLabel, passwordTextField, signInButton, signUpButton])
+        self.addingSubviews(backView: backView, views: views)
     }
     
     private func addingSubviews(backView: UIView, views: [UIView]) {

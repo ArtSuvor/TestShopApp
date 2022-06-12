@@ -30,4 +30,8 @@ extension AuthInteractor: AuthInteractorInput {
             }
         }
     }
+    
+    func signUp(request: RegisterRequest) {
+        
+    }
 }

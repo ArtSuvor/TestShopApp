@@ -11,6 +11,7 @@ import Foundation
 // MARK: Interactor
 protocol AuthInteractorInput: AnyObject {
     func signIn(login: String, password: String)
+    func signUp(request: RegisterRequest)
 }
 
 protocol AuthInteractorOutput: AnyObject {
@@ -18,10 +19,17 @@ protocol AuthInteractorOutput: AnyObject {
 
 // MARK: View Controller
 protocol AuthViewInput: AnyObject {
+    func changedStateView(isLoginView: Bool)
 }
 
 protocol AuthViewOutput: AnyObject {
     func signIn()
+    func register()
+    func changeStateView()
     func loginChanged(text: String)
     func passwordChanged(text: String)
+    func emailChanged(text: String)
+    func genderChanged(text: String)
+    func cardChanged(text: String)
+    func bioChanged(text: String)
 }
