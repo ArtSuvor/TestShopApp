@@ -40,7 +40,7 @@ extension AuthPresenter: AuthViewOutput {
               let card = self.cardText,
               let bio = self.bioText else { return }
         
-        let registerRequest = RegisterRequest(userId: UUID().hashValue,
+        let registerRequest = RegisterRequest(userId: Int.random(in: 0...1000),
                                               userName: userName,
                                               password: password,
                                               email: email,
@@ -81,4 +81,8 @@ extension AuthPresenter: AuthViewOutput {
 
 // MARK: - AuthInteractorOutput
 extension AuthPresenter: AuthInteractorOutput {
+    func didRegister() {
+        self.isLoginView.toggle()
+        self.view.changedStateView(isLoginView: isLoginView)
+    }
 }

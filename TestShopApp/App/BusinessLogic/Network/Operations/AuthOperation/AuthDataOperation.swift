@@ -9,7 +9,8 @@ import Foundation
 
 protocol AuthDataOperation {
     func login(login: String, password: String, completion: @escaping (Result<User, Error>) -> Void)
-    func logout(userId: Int)
+    func register(request: RegisterRequest, completion: @escaping (Result<Void, Error>) -> Void)
+    func logout(userId: Int, completion: @escaping (Result<Void, Error>) -> Void)
 }
 
 final class AuthDataOperationImpl: AuthDataOperation {
@@ -33,7 +34,20 @@ final class AuthDataOperationImpl: AuthDataOperation {
     }
     
 // MARK: - Logout -
-    func logout(userId: Int) {
+    func logout(userId: Int, completion: @escaping (Result<Void, Error>) -> Void) {
         
+    }
+    
+// MARK: - Register -
+    func register(request: RegisterRequest, completion: @escaping (Result<Void, Error>) -> Void) {
+        let request = RegisterRequestOperation(requestParameters: request)
+        let parse = RegisterParseOperation { result in
+            OperationQueue.main.addOperation {
+                completion(result)
+            }
+        }
+        let operations = [request, parse]
+        parse.addDependency(request)
+        operationQueue.addOperations(operations, waitUntilFinished: false)
     }
 }

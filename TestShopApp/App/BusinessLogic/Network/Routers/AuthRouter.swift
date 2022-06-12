@@ -10,6 +10,7 @@ import Alamofire
 
 enum AuthRouter: URLRequestConvertible {
     case login(log: String, pass: String)
+    case register(request: RegisterRequest)
     case logout(id: Int)
     
     private var url: URL {
@@ -19,7 +20,8 @@ enum AuthRouter: URLRequestConvertible {
     private var method: HTTPMethod {
         switch self {
             case .login,
-                    .logout: return .get
+                    .logout,
+                    .register: return .get
         }
     }
     
@@ -27,6 +29,7 @@ enum AuthRouter: URLRequestConvertible {
         switch self {
             case .login: return "login.json"
             case .logout: return "logout.json"
+            case .register: return "registerUser.json"
         }
     }
     
@@ -37,6 +40,14 @@ enum AuthRouter: URLRequestConvertible {
                         "password" : password]
             case let .logout(id):
                 return ["id_user": "\(id)"]
+            case let .register(request):
+                return ["id_user": request.userId,
+                        "username": request.userName,
+                        "password": request.password,
+                        "email": request.email,
+                        "gender": request.gender,
+                        "credit_card": request.creditCard,
+                        "bio": request.bio]
         }
     }
     

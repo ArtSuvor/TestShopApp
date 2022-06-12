@@ -189,6 +189,7 @@ final class RegisterView: UIView {
         self.addSubview(generalStack)
         self.addSubview(registrationButton)
         self.setConstraints(generalStack: generalStack)
+        self.setDelegate()
     }
     
 // MARK: - Create StackView -
@@ -220,8 +221,9 @@ final class RegisterView: UIView {
         passwordTextField.delegate = self
         emailTextField.delegate = self
         cardTextField.delegate = self
+        bioTextView.delegate = self
         
-        genderSegmented.addTarget(self, action: #selector(changedSegmented), for: .editingChanged)
+        genderSegmented.addTarget(self, action: #selector(changedSegmented), for: .valueChanged)
         registrationButton.addTarget(self, action: #selector(registerButtonTapped), for: .touchUpInside)
     }
     
@@ -231,7 +233,6 @@ final class RegisterView: UIView {
     }
     
     @objc private func registerButtonTapped() {
-        self.delegate?.bioText(bioTextView.text ?? "")
         self.delegate?.registerTapped()
     }
 }
@@ -259,6 +260,18 @@ extension RegisterView: UITextFieldDelegate {
                 self.delegate?.cardText(text)
             default: break
         }
+    }
+}
+
+// MARK: - UITextViewDelegate -
+extension RegisterView: UITextViewDelegate {
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        if let text = textView.text,
+            let textRange = Range(range, in: text) {
+            let updatedText = text.replacingCharacters(in: textRange, with: text)
+            self.delegate?.bioText(updatedText)
+        }
+        return true
     }
 }
 

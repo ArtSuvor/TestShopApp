@@ -15,6 +15,7 @@ protocol AuthInteractorInput: AnyObject {
 }
 
 protocol AuthInteractorOutput: AnyObject {
+    func didRegister()
 }
 
 // MARK: View Controller

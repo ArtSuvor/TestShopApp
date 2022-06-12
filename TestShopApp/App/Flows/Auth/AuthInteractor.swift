@@ -26,12 +26,20 @@ extension AuthInteractor: AuthInteractorInput {
                 case let .success(user):
                     print(user)
                 case let .failure(error):
-                    print(error)
+                    print(error.localizedDescription)
             }
         }
     }
     
     func signUp(request: RegisterRequest) {
-        
+        print(request)
+        operation.register(request: request) {[weak self] result in
+            switch result {
+                case .success:
+                    self?.output.didRegister()
+                case let .failure(error):
+                    print(error.localizedDescription)
+            }
+        }
     }
 }
