@@ -10,6 +10,7 @@ import Foundation
 protocol AuthDataOperation {
     func login(login: String, password: String, completion: @escaping (Result<User, Error>) -> Void)
     func register(request: RegisterRequest, completion: @escaping (Result<Void, Error>) -> Void)
+    func changeUserData(request: ChangeUserDataRequest, completion: @escaping (Result<Void, Error>) -> Void)
     func logout(userId: Int, completion: @escaping (Result<Void, Error>) -> Void)
 }
 
@@ -50,6 +51,19 @@ final class AuthDataOperationImpl: AuthDataOperation {
     func register(request: RegisterRequest, completion: @escaping (Result<Void, Error>) -> Void) {
         let request = RegisterRequestOperation(requestParameters: request)
         let parse = RegisterParseOperation { result in
+            OperationQueue.main.addOperation {
+                completion(result)
+            }
+        }
+        let operations = [request, parse]
+        parse.addDependency(request)
+        operationQueue.addOperations(operations, waitUntilFinished: false)
+    }
+    
+// MARK: - ChangeUserData -
+    func changeUserData(request: ChangeUserDataRequest, completion: @escaping (Result<Void, Error>) -> Void) {
+        let request = ChangeDataRequestOperation(requestParameters: request)
+        let parse = ChangeDataParseOperation { result in
             OperationQueue.main.addOperation {
                 completion(result)
             }

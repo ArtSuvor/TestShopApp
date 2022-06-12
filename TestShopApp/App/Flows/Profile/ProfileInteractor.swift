@@ -29,4 +29,16 @@ extension ProfileInteractor: ProfileInteractorInput {
             }
         }
     }
+    
+    func changeUserData(request: ChangeUserDataRequest) {
+        operation.changeUserData(request: request) {[weak self] result in
+            switch result {
+                case .success:
+                    print("Success")
+                    self?.output.didChangeUserData()
+                case let .failure(error):
+                    print(error.localizedDescription)
+            }
+        }
+    }
 }

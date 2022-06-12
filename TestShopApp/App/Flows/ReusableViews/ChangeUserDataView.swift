@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol RegisterViewOutput: AnyObject {
+protocol ChangeUserDataViewOutput: AnyObject {
     var loginText: (String) -> Void { get }
     var passwordText: (String) -> Void { get }
     var emailText: (String) -> Void { get }
@@ -15,10 +15,10 @@ protocol RegisterViewOutput: AnyObject {
     var cardText: (String) -> Void { get }
     var bioText: (String) -> Void { get }
     
-    func registerTapped()
+    func buttonTapped()
 }
 
-final class RegisterView: UIView {
+final class ChangeUserDataView: UIView {
     private enum Gender: Int {
         case male
         case female
@@ -145,7 +145,6 @@ final class RegisterView: UIView {
     
     private let registrationButton: UIButton = {
         let b = UIButton()
-        b.setTitle("Register", for: .normal)
         b.tintColor = .black
         b.setTitleColor(UIColor.black, for: .normal)
         b.backgroundColor = .lightGray
@@ -155,7 +154,8 @@ final class RegisterView: UIView {
     }()
     
 // MARK: - Properties -
-    weak var delegate: RegisterViewOutput?
+    weak var delegate: ChangeUserDataViewOutput?
+    private var isRegister: Bool = true
     
 // MARK: - Init -
     override init(frame: CGRect) {
@@ -165,6 +165,12 @@ final class RegisterView: UIView {
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
+    }
+    
+// MARK: - Public Method -
+    func changeStateButton(isRegister: Bool) {
+        self.isRegister = isRegister
+        registrationButton.setTitle(isRegister ? "Register" : "Change", for: .normal)
     }
     
 // MARK: - Set Views -
@@ -233,12 +239,12 @@ final class RegisterView: UIView {
     }
     
     @objc private func registerButtonTapped() {
-        self.delegate?.registerTapped()
+        self.delegate?.buttonTapped()
     }
 }
 
 // MARK: - UITextFieldDelegate -
-extension RegisterView: UITextFieldDelegate {
+extension ChangeUserDataView: UITextFieldDelegate {
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         if let text = textField.text,
             let textRange = Range(range, in: text) {
@@ -264,7 +270,7 @@ extension RegisterView: UITextFieldDelegate {
 }
 
 // MARK: - UITextViewDelegate -
-extension RegisterView: UITextViewDelegate {
+extension ChangeUserDataView: UITextViewDelegate {
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
         if let text = textView.text,
             let textRange = Range(range, in: text) {
@@ -276,7 +282,7 @@ extension RegisterView: UITextViewDelegate {
 }
 
 // MARK: - Constraints -
-extension RegisterView {
+extension ChangeUserDataView {
     private func setConstraints(generalStack: UIStackView) {
         NSLayoutConstraint.activate([
             generalStack.topAnchor.constraint(equalTo: self.topAnchor),

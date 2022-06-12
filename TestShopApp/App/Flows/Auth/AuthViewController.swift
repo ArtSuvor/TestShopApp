@@ -11,7 +11,7 @@ class AuthViewController: UIViewController {
     
 // MARK: - UI -
     private let loginView: LoginView = LoginView()
-    private let registerView: RegisterView = RegisterView()
+    private let registerView: ChangeUserDataView = ChangeUserDataView()
     
 // MARK: - Properties -
     private let di: DI!
@@ -40,7 +40,7 @@ class AuthViewController: UIViewController {
         
         loginView.delegate = self
         registerView.delegate = self
-        
+        registerView.changeStateButton(isRegister: true)
         loginView.isHidden = false
         registerView.isHidden = true
         
@@ -76,7 +76,7 @@ extension AuthViewController: LoginViewOutput {
 }
 
 // MARK: - RegisterViewOutput -
-extension AuthViewController: RegisterViewOutput {
+extension AuthViewController: ChangeUserDataViewOutput {
     var emailText: (String) -> Void {
         { self.output.emailChanged(text: $0) }
     }
@@ -93,7 +93,7 @@ extension AuthViewController: RegisterViewOutput {
         { self.output.bioChanged(text: $0) }
     }
     
-    func registerTapped() {
+    func buttonTapped() {
         self.output.register()
     }
 }

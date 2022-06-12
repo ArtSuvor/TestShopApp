@@ -24,7 +24,7 @@ final class RegisterRequestOperation: AsyncOperation {
     
 // MARK: - Override -
     override func main() {
-        request = AF.request(AuthRouter.register(request: requestParameters)).response(queue: DispatchQueue.global()) {[weak self] response in
+        request = AF.request(AuthRouter.register(request: self.requestParameters)).response(queue: .global()) {[weak self] response in
             guard let self = self else { return }
             
             self.data = response.data

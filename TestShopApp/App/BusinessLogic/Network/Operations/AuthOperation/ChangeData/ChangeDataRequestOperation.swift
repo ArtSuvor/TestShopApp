@@ -1,5 +1,5 @@
 //
-//  LogoutRequestOperation.swift
+//  ChangeDataRequestOperation.swift
 //  TestShopApp
 //
 //  Created by Art on 12.06.2022.
@@ -8,23 +8,23 @@
 import Foundation
 import Alamofire
 
-final class LogoutRequestOperation: AsyncOperation {
+final class ChangeDataRequestOperation: AsyncOperation {
     
 // MARK: - Properties -
-    private let userId: Int
+    private let requestParameters: ChangeUserDataRequest
     
     private var request: DataRequest?
     private var data: Data?
     private var error: Error?
     
 // MARK: - Init -
-    init(userId: Int) {
-        self.userId = userId
+    init(requestParameters: ChangeUserDataRequest) {
+        self.requestParameters = requestParameters
     }
     
 // MARK: - Override -
     override func main() {
-        request = AF.request(AuthRouter.logout(id: userId)).response(queue: .global()) {[weak self] response in
+        request = AF.request(AuthRouter.changeData(request: self.requestParameters)).response(queue: .global()) {[weak self] response in
             guard let self = self else { return }
             
             self.data = response.data

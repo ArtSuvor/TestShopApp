@@ -21,7 +21,7 @@
 		6E0414E92854FCE000CD62FE /* LoginResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E0414E82854FCE000CD62FE /* LoginResult.swift */; };
 		6E0414EC2854FFDF00CD62FE /* AuthDataOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E0414EB2854FFDF00CD62FE /* AuthDataOperation.swift */; };
 		6E0414F02855FAC900CD62FE /* RegisterRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E0414EF2855FAC900CD62FE /* RegisterRequest.swift */; };
-		6E0414F22855FB8900CD62FE /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E0414F12855FB8900CD62FE /* RegisterView.swift */; };
+		6E0414F22855FB8900CD62FE /* ChangeUserDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E0414F12855FB8900CD62FE /* ChangeUserDataView.swift */; };
 		6E0414F5285617AE00CD62FE /* RegisterRequestOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E0414F4285617AE00CD62FE /* RegisterRequestOperation.swift */; };
 		6E0414F72856180C00CD62FE /* RegisterParseOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E0414F62856180C00CD62FE /* RegisterParseOperation.swift */; };
 		6E0414FA2856220000CD62FE /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E0414F92856220000CD62FE /* ProfileViewController.swift */; };
@@ -31,6 +31,9 @@
 		6E0415062856220C00CD62FE /* ProfileInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E0415002856220C00CD62FE /* ProfileInteractor.swift */; };
 		6E04150928562BBA00CD62FE /* LogoutRequestOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E04150828562BBA00CD62FE /* LogoutRequestOperation.swift */; };
 		6E04150B28562C3C00CD62FE /* LogoutParseOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E04150A28562C3C00CD62FE /* LogoutParseOperation.swift */; };
+		6E04150E2856343300CD62FE /* ChangeUserDataRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E04150D2856343300CD62FE /* ChangeUserDataRequest.swift */; };
+		6E0415112856373B00CD62FE /* ChangeDataRequestOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E0415102856373B00CD62FE /* ChangeDataRequestOperation.swift */; };
+		6E0415132856381C00CD62FE /* ChangeDataParseOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E0415122856381C00CD62FE /* ChangeDataParseOperation.swift */; };
 		6EA79A70284FDC8D00FBEFB9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EA79A6F284FDC8D00FBEFB9 /* AppDelegate.swift */; };
 		6EA79A72284FDC8D00FBEFB9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EA79A71284FDC8D00FBEFB9 /* SceneDelegate.swift */; };
 		6EA79A74284FDC8D00FBEFB9 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EA79A73284FDC8D00FBEFB9 /* AuthViewController.swift */; };
@@ -72,7 +75,7 @@
 		6E0414E82854FCE000CD62FE /* LoginResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResult.swift; sourceTree = "<group>"; };
 		6E0414EB2854FFDF00CD62FE /* AuthDataOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthDataOperation.swift; sourceTree = "<group>"; };
 		6E0414EF2855FAC900CD62FE /* RegisterRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterRequest.swift; sourceTree = "<group>"; };
-		6E0414F12855FB8900CD62FE /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
+		6E0414F12855FB8900CD62FE /* ChangeUserDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeUserDataView.swift; sourceTree = "<group>"; };
 		6E0414F4285617AE00CD62FE /* RegisterRequestOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterRequestOperation.swift; sourceTree = "<group>"; };
 		6E0414F62856180C00CD62FE /* RegisterParseOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterParseOperation.swift; sourceTree = "<group>"; };
 		6E0414F92856220000CD62FE /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -82,6 +85,9 @@
 		6E0415002856220C00CD62FE /* ProfileInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileInteractor.swift; sourceTree = "<group>"; };
 		6E04150828562BBA00CD62FE /* LogoutRequestOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutRequestOperation.swift; sourceTree = "<group>"; };
 		6E04150A28562C3C00CD62FE /* LogoutParseOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutParseOperation.swift; sourceTree = "<group>"; };
+		6E04150D2856343300CD62FE /* ChangeUserDataRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeUserDataRequest.swift; sourceTree = "<group>"; };
+		6E0415102856373B00CD62FE /* ChangeDataRequestOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeDataRequestOperation.swift; sourceTree = "<group>"; };
+		6E0415122856381C00CD62FE /* ChangeDataParseOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeDataParseOperation.swift; sourceTree = "<group>"; };
 		6EA79A6C284FDC8D00FBEFB9 /* TestShopApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestShopApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6EA79A6F284FDC8D00FBEFB9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6EA79A71284FDC8D00FBEFB9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -139,7 +145,6 @@
 			isa = PBXGroup;
 			children = (
 				6E0414CA2854DC9700CD62FE /* LoginView.swift */,
-				6E0414F12855FB8900CD62FE /* RegisterView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -172,6 +177,7 @@
 		6E0414DF2854FA6700CD62FE /* AuthOperation */ = {
 			isa = PBXGroup;
 			children = (
+				6E04150F2856371F00CD62FE /* ChangeData */,
 				6E04150728562B9B00CD62FE /* Logout */,
 				6E0414F32856179400CD62FE /* Register */,
 				6E0414EA2854FFCB00CD62FE /* Login */,
@@ -201,6 +207,7 @@
 			isa = PBXGroup;
 			children = (
 				6E0414EF2855FAC900CD62FE /* RegisterRequest.swift */,
+				6E04150D2856343300CD62FE /* ChangeUserDataRequest.swift */,
 			);
 			path = RequestModel;
 			sourceTree = "<group>";
@@ -241,6 +248,23 @@
 				6E04150A28562C3C00CD62FE /* LogoutParseOperation.swift */,
 			);
 			path = Logout;
+			sourceTree = "<group>";
+		};
+		6E04150C2856306700CD62FE /* ReusableViews */ = {
+			isa = PBXGroup;
+			children = (
+				6E0414F12855FB8900CD62FE /* ChangeUserDataView.swift */,
+			);
+			path = ReusableViews;
+			sourceTree = "<group>";
+		};
+		6E04150F2856371F00CD62FE /* ChangeData */ = {
+			isa = PBXGroup;
+			children = (
+				6E0415102856373B00CD62FE /* ChangeDataRequestOperation.swift */,
+				6E0415122856381C00CD62FE /* ChangeDataParseOperation.swift */,
+			);
+			path = ChangeData;
 			sourceTree = "<group>";
 		};
 		6EA79A63284FDC8D00FBEFB9 = {
@@ -349,6 +373,7 @@
 		6EA79AA5284FE36200FBEFB9 /* Flows */ = {
 			isa = PBXGroup;
 			children = (
+				6E04150C2856306700CD62FE /* ReusableViews */,
 				6E0414F8285621EB00CD62FE /* Profile */,
 				6E0414C82854DB9A00CD62FE /* Auth */,
 			);
@@ -493,6 +518,7 @@
 			files = (
 				6E0414E72854FC7800CD62FE /* LoginParseOperation.swift in Sources */,
 				6E0414D32854EDD400CD62FE /* AuthPresenter.swift in Sources */,
+				6E0415132856381C00CD62FE /* ChangeDataParseOperation.swift in Sources */,
 				6E0414FA2856220000CD62FE /* ProfileViewController.swift in Sources */,
 				6E0414E32854FA9F00CD62FE /* AsyncOperation.swift in Sources */,
 				6EA79A74284FDC8D00FBEFB9 /* AuthViewController.swift in Sources */,
@@ -500,7 +526,7 @@
 				6E0414D92854EF2200CD62FE /* DI.swift in Sources */,
 				6EA79A70284FDC8D00FBEFB9 /* AppDelegate.swift in Sources */,
 				6E0414CB2854DC9700CD62FE /* LoginView.swift in Sources */,
-				6E0414F22855FB8900CD62FE /* RegisterView.swift in Sources */,
+				6E0414F22855FB8900CD62FE /* ChangeUserDataView.swift in Sources */,
 				6E0414EC2854FFDF00CD62FE /* AuthDataOperation.swift in Sources */,
 				6E0414E92854FCE000CD62FE /* LoginResult.swift in Sources */,
 				6E0414D72854EDD400CD62FE /* AuthInteractor.swift in Sources */,
@@ -516,6 +542,8 @@
 				6E0414F5285617AE00CD62FE /* RegisterRequestOperation.swift in Sources */,
 				6E0415062856220C00CD62FE /* ProfileInteractor.swift in Sources */,
 				6E0414D62854EDD400CD62FE /* AuthAssembly.swift in Sources */,
+				6E04150E2856343300CD62FE /* ChangeUserDataRequest.swift in Sources */,
+				6E0415112856373B00CD62FE /* ChangeDataRequestOperation.swift in Sources */,
 				6E0414F72856180C00CD62FE /* RegisterParseOperation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

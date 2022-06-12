@@ -11,10 +11,12 @@ import Foundation
 // MARK: Interactor
 protocol ProfileInteractorInput: AnyObject {
     func logout(userId: Int)
+    func changeUserData(request: ChangeUserDataRequest)
 }
 
 protocol ProfileInteractorOutput: AnyObject {
     func didLogout()
+    func didChangeUserData()
 }
 
 // MARK: View Controller
@@ -24,4 +26,11 @@ protocol ProfileViewInput: AnyObject {
 
 protocol ProfileViewOutput: AnyObject {
     func logout()
+    func changeUserData()
+    func loginChanged(text: String)
+    func passwordChanged(text: String)
+    func emailChanged(text: String)
+    func genderChanged(text: String)
+    func cardChanged(text: String)
+    func bioChanged(text: String)
 }

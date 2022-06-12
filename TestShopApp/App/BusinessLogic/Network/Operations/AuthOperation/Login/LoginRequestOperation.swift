@@ -26,7 +26,7 @@ final class LoginRequestOperation: AsyncOperation {
     
 // MARK: - Override -
     override func main() {
-        request = AF.request(AuthRouter.login(log: self.login, pass: self.password)).response(queue: DispatchQueue.global()) {[weak self] response in
+        request = AF.request(AuthRouter.login(log: self.login, pass: self.password)).response(queue: .global()) {[weak self] response in
             guard let self = self else { return }
             
             self.data = response.data
