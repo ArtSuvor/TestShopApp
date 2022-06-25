@@ -23,7 +23,7 @@ final class MainViewController: UIViewController {
         t.layer.masksToBounds = true
         return t
     }()
-    private var detailView: DetailInfoProduct!
+    private var detailView = DetailInfoProductView()
     
 // MARK: - Properties -
     var output: MainViewOutput!
@@ -49,8 +49,10 @@ final class MainViewController: UIViewController {
             tableView.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor)])
     }
     
-    private func showDetailView(product: ProductModel) {
-        self.detailView = DetailInfoProduct()
+    private func showDetailView() {
+        if self.view.subviews.contains(self.detailView) {
+            self.detailView.removeFromSuperview()
+        }
         self.detailView.output = self
         self.view.addSubview(detailView)
         
@@ -62,7 +64,7 @@ final class MainViewController: UIViewController {
     }
     
     private func hideDeteailView() {
-        self.detailView?.removeFromSuperview()
+        self.detailView.removeFromSuperview()
     }
 }
 
@@ -71,6 +73,10 @@ extension MainViewController: MainViewInput {
     func didLoadProgucts(items: [ProductModel]) {
         self.products = items
         self.tableView.reloadData()
+    }
+    
+    func didLoadDetailInfoProduct(item: ProductModel) {
+        self.detailView.configure(prod: item)
     }
 }
 
@@ -98,6 +104,7 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.showDetailView(product: products[indexPath.row])
+        self.showDetailView()
+        self.output.loadDetailInfoProduct(id: products[indexPath.row].id ?? 0)
     }
 }

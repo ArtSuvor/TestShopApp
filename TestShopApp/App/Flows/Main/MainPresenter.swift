@@ -20,6 +20,10 @@ extension MainPresenter: MainViewOutput {
     func loadProducts(page: Int, categoryId: Int) {
         self.interactor.loadProducts(page: page, categoryId: categoryId)
     }
+    
+    func loadDetailInfoProduct(id: Int) {
+        self.interactor.loadDetailInfoProduct(id: id)
+    }
 }
 
 // MARK: - MainInteractorOutput
@@ -32,5 +36,9 @@ extension MainPresenter: MainInteractorOutput {
                          description: nil)
         }
         self.view.didLoadProgucts(items: products)
+    }
+    
+    func didLoadDetailInfoProduct(item: ProductModel) {
+        self.view.didLoadDetailInfoProduct(item: item)
     }
 }

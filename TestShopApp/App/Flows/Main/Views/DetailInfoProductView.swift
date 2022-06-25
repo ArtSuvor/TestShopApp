@@ -12,7 +12,7 @@ protocol DetailInfoViewOutput: AnyObject {
     func didTapCloseButton()
 }
 
-final class DetailInfoProduct: UIView {
+final class DetailInfoProductView: UIView {
 // MARK: - UI -
     private let nameLabel: UILabel = {
         let l = UILabel()

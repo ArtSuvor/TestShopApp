@@ -20,7 +20,7 @@ struct ProductResponse: Codable {
 }
 
 struct ProductModel: Codable {
-    let id: Int
+    let id: Int?
     let name: String
     let price: Int
     let description: String?

@@ -29,4 +29,15 @@ extension MainInteractor: MainInteractorInput {
             }
         }
     }
+    
+    func loadDetailInfoProduct(id: Int) {
+        self.operations.loadDetailInfoProduct(id: id) { result in
+            switch result {
+                case let .success(item):
+                    self.output.didLoadDetailInfoProduct(item: item)
+                case let .failure(error):
+                    print(error)
+            }
+        }
+    }
 }
