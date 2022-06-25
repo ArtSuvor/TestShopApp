@@ -8,23 +8,27 @@
 import Foundation
 
 struct ProductResponse: Codable {
-    let page: Int
-    let products: [ProductModel]
+    let id: Int
+    let name: String
+    let price: Int
     
     enum CodingKeys: String, CodingKey {
-        case page = "page_number"
-        case products
+        case id = "id_product"
+        case name = "product_name"
+        case price
     }
 }
 
 struct ProductModel: Codable {
     let id: Int
     let name: String
-    let price: String
+    let price: Int
+    let description: String?
     
     enum CodingKeys: String, CodingKey {
         case id = "id_product"
         case name = "product_name"
-        case price
+        case price = "product_price"
+        case description = "product_description"
     }
 }

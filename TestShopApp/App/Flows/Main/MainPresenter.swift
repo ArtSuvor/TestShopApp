@@ -17,9 +17,20 @@ final class MainPresenter {
 
 // MARK: - MainViewOutput
 extension MainPresenter: MainViewOutput {
-    
+    func loadProducts(page: Int, categoryId: Int) {
+        self.interactor.loadProducts(page: page, categoryId: categoryId)
+    }
 }
 
 // MARK: - MainInteractorOutput
 extension MainPresenter: MainInteractorOutput {
+    func didLoadProducts(item: [ProductResponse]) {
+        let products = item.map {
+            ProductModel(id: $0.id,
+                         name: $0.name,
+                         price: $0.price,
+                         description: nil)
+        }
+        self.view.didLoadProgucts(items: products)
+    }
 }

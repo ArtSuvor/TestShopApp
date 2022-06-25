@@ -15,10 +15,10 @@ final class MainAssembly {
         self.view = view
     }
 
-    static func assemble() -> MainAssembly {
+    static func assemble(operations: ShopDataOperations) -> MainAssembly {
         let view = MainViewController()
         let presenter = MainPresenter()
-        let interactor = MainInteractor()
+        let interactor = MainInteractor(operations: operations)
 
         view.output = presenter
         presenter.view = view

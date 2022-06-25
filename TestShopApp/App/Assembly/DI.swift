@@ -12,12 +12,16 @@ final class DI {
         makeViewController(flow: .auth)
     }
     
-    private var profileViewController: UIViewController {
-        makeViewController(flow: .profile)
-    }
-    
     private var authDataOperations: AuthDataOperation {
         makeAuthDataOperations()
+    }
+    
+    private var shopDataOperations: ShopDataOperations {
+        makeShopDataOperations()
+    }
+    
+    private var profileViewController: UIViewController {
+        makeViewController(flow: .profile)
     }
     
     private var mainViewController: UIViewController {
@@ -49,12 +53,16 @@ extension DI {
                 return ProfileAssembly.assemble(operation: self.authDataOperations,
                                                 di: self).view
             case .main:
-                return MainAssembly.assemble().view
+                return MainAssembly.assemble(operations: self.shopDataOperations).view
         }
     }
     
 // MARK: - Make Operations -
     private func makeAuthDataOperations() -> AuthDataOperation {
         AuthDataOperationImpl()
+    }
+    
+    private func makeShopDataOperations() -> ShopDataOperations {
+        ShopDataOperationsImpl()
     }
 }

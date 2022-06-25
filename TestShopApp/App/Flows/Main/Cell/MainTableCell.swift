@@ -42,7 +42,7 @@ final class MainTableCell: UITableViewCell {
 // MARK: - Public -
     func configure(product: ProductModel) {
         self.nameLabel.text = product.name
-        self.priceLabel.text = product.price
+        self.priceLabel.text = "\(product.price)"
     }
     
 // MARK: - Private -

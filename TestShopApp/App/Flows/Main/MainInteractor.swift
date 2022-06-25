@@ -10,11 +10,23 @@ import Foundation
 
 final class MainInteractor {
     weak var output: MainInteractorOutput!
+    private let operations: ShopDataOperations
 
-    init() {
+    init(operations: ShopDataOperations) {
+        self.operations = operations
     }
 }
 
 // MARK: - MainInteractorInput
 extension MainInteractor: MainInteractorInput {
+    func loadProducts(page: Int, categoryId: Int) {
+        self.operations.loadProducts(page: page, categoryId: categoryId) { result in
+            switch result {
+                case let .success(response):
+                    self.output.didLoadProducts(item: response)
+                case let .failure(error):
+                    print(error)
+            }
+        }
+    }
 }

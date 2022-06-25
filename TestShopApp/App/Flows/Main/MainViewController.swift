@@ -23,6 +23,7 @@ final class MainViewController: UIViewController {
         t.layer.masksToBounds = true
         return t
     }()
+    private var detailView: DetailInfoProduct!
     
 // MARK: - Properties -
     var output: MainViewOutput!
@@ -32,9 +33,11 @@ final class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setupViews()
+        self.output.loadProducts(page: 1, categoryId: 1)
     }
     
     private func setupViews() {
+        self.title = "Products"
         self.view.backgroundColor = .white
         self.view.addSubview(tableView)
         
@@ -45,10 +48,36 @@ final class MainViewController: UIViewController {
             tableView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -5),
             tableView.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor)])
     }
+    
+    private func showDetailView(product: ProductModel) {
+        self.detailView = DetailInfoProduct()
+        self.detailView.output = self
+        self.view.addSubview(detailView)
+        
+        NSLayoutConstraint.activate([
+            self.detailView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
+            self.detailView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
+            self.detailView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor),
+            self.detailView.heightAnchor.constraint(equalToConstant: self.view.frame.height / 2)])
+    }
+    
+    private func hideDeteailView() {
+        self.detailView?.removeFromSuperview()
+    }
 }
 
 // MARK: - MainViewInput
 extension MainViewController: MainViewInput {
+    func didLoadProgucts(items: [ProductModel]) {
+        self.products = items
+        self.tableView.reloadData()
+    }
+}
+
+extension MainViewController: DetailInfoViewOutput {
+    func didTapCloseButton() {
+        self.hideDeteailView()
+    }
 }
 
 // MARK: - UITableViewDelegate/DataSource -
@@ -66,5 +95,9 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         UITableView.automaticDimension
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.showDetailView(product: products[indexPath.row])
     }
 }
