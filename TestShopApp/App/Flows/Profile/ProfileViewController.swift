@@ -10,6 +10,7 @@ import UIKit
 final class ProfileViewController: UIViewController {
     
 // MARK: - UI -
+    private let scrollView = UIScrollView()
     private let changeDataView = ChangeUserDataView()
     
 // MARK: - Properites -
@@ -28,23 +29,31 @@ final class ProfileViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setViews()
+        self.setViews()
         self.setupNavigationBar()
     }
     
 // MARK: - SetViews -
     private func setViews() {
         self.view.backgroundColor = .white
-        self.view.addSubview(changeDataView)
+        self.view.addSubview(scrollView)
+        self.scrollView.addSubview(changeDataView)
         
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
         changeDataView.delegate = self
         changeDataView.changeStateButton(isRegister: false)
         
+        let safeArea = self.view.safeAreaLayoutGuide
         NSLayoutConstraint.activate([
-            changeDataView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 20),
-            changeDataView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -20),
-            changeDataView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: 10),
-            changeDataView.bottomAnchor.constraint(greaterThanOrEqualTo: self.view.safeAreaLayoutGuide.bottomAnchor, constant: -10)])
+            scrollView.topAnchor.constraint(equalTo: safeArea.topAnchor),
+            scrollView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
+            scrollView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
+            scrollView.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor),
+            
+            changeDataView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 20),
+            changeDataView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: -20),
+            changeDataView.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 10),
+            changeDataView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: -10)])
     }
     
 // MARK: - setupNavigationBar -
