@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct ProductResponse: Codable {
+struct ProductResponse: Codable, Equatable {
     let id: Int
     let name: String
     let price: Int
@@ -19,7 +19,7 @@ struct ProductResponse: Codable {
     }
 }
 
-struct ProductModel: Codable {
+struct ProductModel: Codable, Equatable {
     let id: Int?
     let name: String
     let price: Int

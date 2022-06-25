@@ -57,6 +57,7 @@
 		6EE08FB628678CEB00FEB87B /* DetailInfoProductView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE08FB528678CEB00FEB87B /* DetailInfoProductView.swift */; };
 		6EE08FB92867937600FEB87B /* DetailInfoRequestOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE08FB82867937600FEB87B /* DetailInfoRequestOperation.swift */; };
 		6EE08FBB286793D000FEB87B /* DetailInfoParseOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE08FBA286793D000FEB87B /* DetailInfoParseOperation.swift */; };
+		6EE08FBD28679A7600FEB87B /* ShopRequestTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE08FBC28679A7600FEB87B /* ShopRequestTest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -130,6 +131,7 @@
 		6EE08FB528678CEB00FEB87B /* DetailInfoProductView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailInfoProductView.swift; sourceTree = "<group>"; };
 		6EE08FB82867937600FEB87B /* DetailInfoRequestOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailInfoRequestOperation.swift; sourceTree = "<group>"; };
 		6EE08FBA286793D000FEB87B /* DetailInfoParseOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailInfoParseOperation.swift; sourceTree = "<group>"; };
+		6EE08FBC28679A7600FEB87B /* ShopRequestTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopRequestTest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -383,6 +385,7 @@
 			isa = PBXGroup;
 			children = (
 				6EA79A86284FDC8F00FBEFB9 /* AuthRequestsTest.swift */,
+				6EE08FBC28679A7600FEB87B /* ShopRequestTest.swift */,
 			);
 			path = TestShopAppTests;
 			sourceTree = "<group>";
@@ -669,6 +672,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6EA79A87284FDC8F00FBEFB9 /* AuthRequestsTest.swift in Sources */,
+				6EE08FBD28679A7600FEB87B /* ShopRequestTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
