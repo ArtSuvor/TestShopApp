@@ -12,12 +12,25 @@ final class DI {
         makeViewController(flow: .auth)
     }
     
-    var profileViewController: UIViewController {
+    private var authDataOperations: AuthDataOperation {
+        makeAuthDataOperations()
+    }
+    
+    private var shopDataOperations: ShopDataOperations {
+        makeShopDataOperations()
+    }
+    
+    private var profileViewController: UIViewController {
         makeViewController(flow: .profile)
     }
     
-    var authDataOperations: AuthDataOperation {
-        makeAuthDataOperations()
+    private var mainViewController: UIViewController {
+        makeViewController(flow: .main)
+    }
+    
+    func makeTabBarController() -> UITabBarController {
+        TabBarController(mainVC: self.mainViewController,
+                         profileVC: self.profileViewController)
     }
 }
 
@@ -26,6 +39,7 @@ extension DI {
     private enum Flows {
         case auth
         case profile
+        case main
     }
 }
 
@@ -36,13 +50,19 @@ extension DI {
             case .auth:
                 return AuthAssembly.assemble(operation: self.authDataOperations, di: self).view
             case .profile:
-                let vc = ProfileAssembly.assemble(operation: self.authDataOperations, di: self).view
-                return UINavigationController(rootViewController: vc)
+                return ProfileAssembly.assemble(operation: self.authDataOperations,
+                                                di: self).view
+            case .main:
+                return MainAssembly.assemble(operations: self.shopDataOperations).view
         }
     }
     
 // MARK: - Make Operations -
     private func makeAuthDataOperations() -> AuthDataOperation {
         AuthDataOperationImpl()
+    }
+    
+    private func makeShopDataOperations() -> ShopDataOperations {
+        ShopDataOperationsImpl()
     }
 }

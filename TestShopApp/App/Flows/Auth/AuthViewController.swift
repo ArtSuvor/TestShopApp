@@ -101,8 +101,7 @@ extension AuthViewController: ChangeUserDataViewOutput {
 // MARK: - AuthViewInput -
 extension AuthViewController: AuthViewInput {
     func showProfileView() {
-        let vc = di.profileViewController
-        vc.modalPresentationStyle = .fullScreen
+        let vc = di.makeTabBarController()
         self.present(vc, animated: true)
     }
     
