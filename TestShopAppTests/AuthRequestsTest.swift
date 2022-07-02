@@ -24,7 +24,7 @@ class AuthRequestsTest: XCTestCase {
         let userName = "Somebody"
         let password = "mypassword"
         var userResponse: User?
-        let successResponse = User(id: 123,
+        let successResponse = User(id: "ahfasdf",
                                    login: "geekbrains",
                                    name: "John",
                                    lastname: "Doe")
