@@ -25,7 +25,7 @@ class AuthRequestsTest: XCTestCase {
         let password = "mypassword"
         var userResponse: User?
         let successResponse = User(id: "ahfasdf",
-                                   login: "geekbrains",
+                                   login: "Somebody",
                                    name: "John",
                                    lastname: "Doe")
         
@@ -38,7 +38,7 @@ class AuthRequestsTest: XCTestCase {
              exp.fulfill()
         }
         waitForExpectations(timeout: 5)
-        XCTAssert(userResponse?.id == successResponse.id, userResponse.debugDescription)
+        XCTAssert(userResponse?.login == successResponse.login, userResponse.debugDescription)
     }
     
     func testLogout() {

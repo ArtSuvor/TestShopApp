@@ -7,17 +7,12 @@
 
 import Foundation
 
-protocol ShopDataOperations {
+protocol ShopDataOperations: AddingOperations, AnyObject {
     func loadProducts(page: Int, categoryId: Int, completion: @escaping (Result<[ProductResponse], Error>) -> Void)
     func loadDetailInfoProduct(id: Int, completion: @escaping (Result<ProductModel, Error>) -> Void)
 }
 
 final class ShopDataOperationsImpl: ShopDataOperations {
-    private let operationQueue: OperationQueue
-    
-    init() {
-        self.operationQueue = OperationQueue()
-    }
     
 // MARK: - loadProducts -
     func loadProducts(page: Int, categoryId: Int, completion: @escaping (Result<[ProductResponse], Error>) -> Void) {
@@ -27,9 +22,7 @@ final class ShopDataOperationsImpl: ShopDataOperations {
                 completion(result)
             }
         }
-        let operations = [request, parse]
-        parse.addDependency(request)
-        operationQueue.addOperations(operations, waitUntilFinished: false)
+        self.addingOperations(request: request, parse: parse)
     }
     
     func loadDetailInfoProduct(id: Int, completion: @escaping (Result<ProductModel, Error>) -> Void) {
@@ -39,8 +32,6 @@ final class ShopDataOperationsImpl: ShopDataOperations {
                 completion(result)
             }
         }
-        let operations = [request, parse]
-        parse.addDependency(request)
-        operationQueue.addOperations(operations, waitUntilFinished: false)
+        self.addingOperations(request: request, parse: parse)
     }
 }

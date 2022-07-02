@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol AuthDataOperation {
+protocol AuthDataOperation: AddingOperations, AnyObject {
     func login(login: String, password: String, completion: @escaping (Result<User, Error>) -> Void)
     func register(request: RegisterRequest, completion: @escaping (Result<Void, Error>) -> Void)
     func changeUserData(request: ChangeUserDataRequest, completion: @escaping (Result<Void, Error>) -> Void)
@@ -15,11 +15,6 @@ protocol AuthDataOperation {
 }
 
 final class AuthDataOperationImpl: AuthDataOperation {
-    private let operationQueue: OperationQueue
-    
-    init() {
-        self.operationQueue = OperationQueue()
-    }
     
 // MARK: - Login -
     func login(login: String, password: String, completion: @escaping (Result<User, Error>) -> Void) {
@@ -29,9 +24,7 @@ final class AuthDataOperationImpl: AuthDataOperation {
                 completion(result)
             }
         }
-        let operations = [request, parse]
-        parse.addDependency(request)
-        operationQueue.addOperations(operations, waitUntilFinished: false)
+        self.addingOperations(request: request, parse: parse)
     }
     
 // MARK: - Logout -
@@ -42,9 +35,7 @@ final class AuthDataOperationImpl: AuthDataOperation {
                 completion(result)
             }
         }
-        let operations = [request, parse]
-        parse.addDependency(request)
-        operationQueue.addOperations(operations, waitUntilFinished: false)
+        self.addingOperations(request: request, parse: parse)
     }
     
 // MARK: - Register -
@@ -55,9 +46,7 @@ final class AuthDataOperationImpl: AuthDataOperation {
                 completion(result)
             }
         }
-        let operations = [request, parse]
-        parse.addDependency(request)
-        operationQueue.addOperations(operations, waitUntilFinished: false)
+        self.addingOperations(request: request, parse: parse)
     }
     
 // MARK: - ChangeUserData -
@@ -68,8 +57,6 @@ final class AuthDataOperationImpl: AuthDataOperation {
                 completion(result)
             }
         }
-        let operations = [request, parse]
-        parse.addDependency(request)
-        operationQueue.addOperations(operations, waitUntilFinished: false)
+        self.addingOperations(request: request, parse: parse)
     }
 }
