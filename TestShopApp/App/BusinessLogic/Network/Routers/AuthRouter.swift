@@ -15,24 +15,19 @@ enum AuthRouter: URLRequestConvertible {
     case logout(id: Int)
     
     private var url: URL {
-        URL(string: "https://raw.githubusercontent.com/GeekBrainsTutorial/online-store-api/master/responses/")!
+        URL(string: "https://testmockserver.herokuapp.com")!
     }
     
     private var method: HTTPMethod {
-        switch self {
-            case .login,
-                    .logout,
-                    .register,
-                    .changeData: return .get
-        }
+        .post
     }
     
     private var path: String {
         switch self {
-            case .login: return "login.json"
-            case .logout: return "logout.json"
-            case .register: return "registerUser.json"
-            case .changeData: return "changeUserData.json"
+            case .login: return "/login"
+            case .logout: return "/logout"
+            case .register: return "/register"
+            case .changeData: return "/changedata"
         }
     }
     
@@ -67,9 +62,7 @@ enum AuthRouter: URLRequestConvertible {
         var request = URLRequest(url: url)
         request.method = method
         
-        return self.method == .get
-        ? try URLEncoding.default.encode(request, with: parameters)
-        : try JSONEncoding.default.encode(request, with: parameters)        
+        return try JSONEncoding.default.encode(request, with: parameters)
     }
 }
 
