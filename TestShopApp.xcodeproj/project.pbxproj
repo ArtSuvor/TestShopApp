@@ -46,6 +46,15 @@
 		6E276BA02867666E00B3B1E5 /* LoadProductRequestsOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E276B9F2867666E00B3B1E5 /* LoadProductRequestsOperation.swift */; };
 		6E276BA22867678300B3B1E5 /* LoadProductParseOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E276BA12867678300B3B1E5 /* LoadProductParseOperation.swift */; };
 		6E276BA42867693100B3B1E5 /* ShopDataOperations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E276BA32867693100B3B1E5 /* ShopDataOperations.swift */; };
+		6E4823CE2879984F00E9BA82 /* AddProductRequestOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E4823CD2879984F00E9BA82 /* AddProductRequestOperation.swift */; };
+		6E4823D02879988900E9BA82 /* AddProductResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E4823CF2879988900E9BA82 /* AddProductResponse.swift */; };
+		6E4823D2287998AC00E9BA82 /* DeleteProductResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E4823D1287998AC00E9BA82 /* DeleteProductResponse.swift */; };
+		6E4823D4287998CD00E9BA82 /* BasketRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E4823D3287998CD00E9BA82 /* BasketRouter.swift */; };
+		6E4823D62879998F00E9BA82 /* DeleteProductRequestOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E4823D52879998F00E9BA82 /* DeleteProductRequestOperation.swift */; };
+		6E4823D8287999BC00E9BA82 /* DeleteProductParseOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E4823D7287999BC00E9BA82 /* DeleteProductParseOperation.swift */; };
+		6E4823DA287999E000E9BA82 /* AddProductParseOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E4823D9287999E000E9BA82 /* AddProductParseOperation.swift */; };
+		6E4823DC28799A1F00E9BA82 /* BasketDataOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E4823DB28799A1F00E9BA82 /* BasketDataOperation.swift */; };
+		6E4823DE28799E0B00E9BA82 /* BasketRequestTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E4823DD28799E0B00E9BA82 /* BasketRequestTest.swift */; };
 		6EA79A70284FDC8D00FBEFB9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EA79A6F284FDC8D00FBEFB9 /* AppDelegate.swift */; };
 		6EA79A72284FDC8D00FBEFB9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EA79A71284FDC8D00FBEFB9 /* SceneDelegate.swift */; };
 		6EA79A74284FDC8D00FBEFB9 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EA79A73284FDC8D00FBEFB9 /* AuthViewController.swift */; };
@@ -127,6 +136,15 @@
 		6E276B9F2867666E00B3B1E5 /* LoadProductRequestsOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadProductRequestsOperation.swift; sourceTree = "<group>"; };
 		6E276BA12867678300B3B1E5 /* LoadProductParseOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadProductParseOperation.swift; sourceTree = "<group>"; };
 		6E276BA32867693100B3B1E5 /* ShopDataOperations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopDataOperations.swift; sourceTree = "<group>"; };
+		6E4823CD2879984F00E9BA82 /* AddProductRequestOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProductRequestOperation.swift; sourceTree = "<group>"; };
+		6E4823CF2879988900E9BA82 /* AddProductResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProductResponse.swift; sourceTree = "<group>"; };
+		6E4823D1287998AC00E9BA82 /* DeleteProductResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteProductResponse.swift; sourceTree = "<group>"; };
+		6E4823D3287998CD00E9BA82 /* BasketRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketRouter.swift; sourceTree = "<group>"; };
+		6E4823D52879998F00E9BA82 /* DeleteProductRequestOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteProductRequestOperation.swift; sourceTree = "<group>"; };
+		6E4823D7287999BC00E9BA82 /* DeleteProductParseOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteProductParseOperation.swift; sourceTree = "<group>"; };
+		6E4823D9287999E000E9BA82 /* AddProductParseOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProductParseOperation.swift; sourceTree = "<group>"; };
+		6E4823DB28799A1F00E9BA82 /* BasketDataOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketDataOperation.swift; sourceTree = "<group>"; };
+		6E4823DD28799E0B00E9BA82 /* BasketRequestTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketRequestTest.swift; sourceTree = "<group>"; };
 		6EA79A6C284FDC8D00FBEFB9 /* TestShopApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestShopApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6EA79A6F284FDC8D00FBEFB9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6EA79A71284FDC8D00FBEFB9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -218,6 +236,7 @@
 				6E0414DC2854F20400CD62FE /* AuthRouter.swift */,
 				6E276B9B286763AF00B3B1E5 /* ShopRouter.swift */,
 				6ED6103028709057008A093E /* CommentRouter.swift */,
+				6E4823D3287998CD00E9BA82 /* BasketRouter.swift */,
 			);
 			path = Routers;
 			sourceTree = "<group>";
@@ -225,6 +244,7 @@
 		6E0414DE2854FA5000CD62FE /* Operations */ = {
 			isa = PBXGroup;
 			children = (
+				6E4823CA287997FC00E9BA82 /* Basket */,
 				6ED6103428709D2C008A093E /* Comments */,
 				6E276B9D2867661100B3B1E5 /* Shop */,
 				6E0414DF2854FA6700CD62FE /* Auth */,
@@ -277,6 +297,8 @@
 				6E0414E82854FCE000CD62FE /* LoginResult.swift */,
 				6E276B99286761A100B3B1E5 /* ProductResponse.swift */,
 				6ED6103C28709F57008A093E /* CommentModel.swift */,
+				6E4823CF2879988900E9BA82 /* AddProductResponse.swift */,
+				6E4823D1287998AC00E9BA82 /* DeleteProductResponse.swift */,
 			);
 			path = ResponseModel;
 			sourceTree = "<group>";
@@ -377,6 +399,34 @@
 			path = LoadProducts;
 			sourceTree = "<group>";
 		};
+		6E4823CA287997FC00E9BA82 /* Basket */ = {
+			isa = PBXGroup;
+			children = (
+				6E4823CC2879982F00E9BA82 /* DeleteProduct */,
+				6E4823CB2879980600E9BA82 /* AddProduct */,
+				6E4823DB28799A1F00E9BA82 /* BasketDataOperation.swift */,
+			);
+			path = Basket;
+			sourceTree = "<group>";
+		};
+		6E4823CB2879980600E9BA82 /* AddProduct */ = {
+			isa = PBXGroup;
+			children = (
+				6E4823CD2879984F00E9BA82 /* AddProductRequestOperation.swift */,
+				6E4823D9287999E000E9BA82 /* AddProductParseOperation.swift */,
+			);
+			path = AddProduct;
+			sourceTree = "<group>";
+		};
+		6E4823CC2879982F00E9BA82 /* DeleteProduct */ = {
+			isa = PBXGroup;
+			children = (
+				6E4823D52879998F00E9BA82 /* DeleteProductRequestOperation.swift */,
+				6E4823D7287999BC00E9BA82 /* DeleteProductParseOperation.swift */,
+			);
+			path = DeleteProduct;
+			sourceTree = "<group>";
+		};
 		6EA79A63284FDC8D00FBEFB9 = {
 			isa = PBXGroup;
 			children = (
@@ -413,6 +463,7 @@
 				6EA79A86284FDC8F00FBEFB9 /* AuthRequestsTest.swift */,
 				6EE08FBC28679A7600FEB87B /* ShopRequestTest.swift */,
 				6ED6103228709BA4008A093E /* CommentsRequestsTest.swift */,
+				6E4823DD28799E0B00E9BA82 /* BasketRequestTest.swift */,
 			);
 			path = TestShopAppTests;
 			sourceTree = "<group>";
@@ -696,16 +747,21 @@
 				6EE08FB628678CEB00FEB87B /* DetailInfoProductView.swift in Sources */,
 				6E0414E32854FA9F00CD62FE /* AsyncOperation.swift in Sources */,
 				6E276B93286756AC00B3B1E5 /* MainProtocols.swift in Sources */,
+				6E4823D02879988900E9BA82 /* AddProductResponse.swift in Sources */,
 				6EA79A74284FDC8D00FBEFB9 /* AuthViewController.swift in Sources */,
 				6ED6103F2870A0B5008A093E /* GetAllRequestOperation.swift in Sources */,
 				6E0414DD2854F20400CD62FE /* AuthRouter.swift in Sources */,
 				6E0414D92854EF2200CD62FE /* DI.swift in Sources */,
+				6E4823D8287999BC00E9BA82 /* DeleteProductParseOperation.swift in Sources */,
 				6EA79A70284FDC8D00FBEFB9 /* AppDelegate.swift in Sources */,
 				6E0414CB2854DC9700CD62FE /* LoginView.swift in Sources */,
 				6E0414F22855FB8900CD62FE /* ChangeUserDataView.swift in Sources */,
 				6E276B92286756AC00B3B1E5 /* MainViewController.swift in Sources */,
 				6EE08FBB286793D000FEB87B /* DetailInfoParseOperation.swift in Sources */,
+				6E4823D62879998F00E9BA82 /* DeleteProductRequestOperation.swift in Sources */,
 				6E0414EC2854FFDF00CD62FE /* AuthDataOperation.swift in Sources */,
+				6E4823D2287998AC00E9BA82 /* DeleteProductResponse.swift in Sources */,
+				6E4823CE2879984F00E9BA82 /* AddProductRequestOperation.swift in Sources */,
 				6E276B9A286761A100B3B1E5 /* ProductResponse.swift in Sources */,
 				6ED610432870CB16008A093E /* AddCommentRequestOperation.swift in Sources */,
 				6ED6103128709057008A093E /* CommentRouter.swift in Sources */,
@@ -720,9 +776,12 @@
 				6E276BA22867678300B3B1E5 /* LoadProductParseOperation.swift in Sources */,
 				6E0415052856220C00CD62FE /* ProfileAssembly.swift in Sources */,
 				6EA79A72284FDC8D00FBEFB9 /* SceneDelegate.swift in Sources */,
+				6E4823D4287998CD00E9BA82 /* BasketRouter.swift in Sources */,
 				6E276B95286756AC00B3B1E5 /* MainInteractor.swift in Sources */,
 				6E04150928562BBA00CD62FE /* LogoutRequestOperation.swift in Sources */,
+				6E4823DA287999E000E9BA82 /* AddProductParseOperation.swift in Sources */,
 				6E04150B28562C3C00CD62FE /* LogoutParseOperation.swift in Sources */,
+				6E4823DC28799A1F00E9BA82 /* BasketDataOperation.swift in Sources */,
 				6E0414F02855FAC900CD62FE /* RegisterRequest.swift in Sources */,
 				6E0415022856220C00CD62FE /* ProfilePresenter.swift in Sources */,
 				6ED610492870CDA0008A093E /* DeleteCommentParseOperation.swift in Sources */,
@@ -747,6 +806,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6EA79A87284FDC8F00FBEFB9 /* AuthRequestsTest.swift in Sources */,
+				6E4823DE28799E0B00E9BA82 /* BasketRequestTest.swift in Sources */,
 				6EE08FBD28679A7600FEB87B /* ShopRequestTest.swift in Sources */,
 				6ED6103328709BA4008A093E /* CommentsRequestsTest.swift in Sources */,
 			);

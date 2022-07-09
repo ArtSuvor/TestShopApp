@@ -9,8 +9,8 @@ import Foundation
 
 protocol CommentsDataOperations: AddingOperations, AnyObject {
     func getAllComments(productId: Int, completion: @escaping (Result<[CommentModel], Error>) -> Void)
-    func addComment(userId: Int, text: String, completion: @escaping (Result<Void, Error>) -> Void)
-    func deleteComment(commentId: Int, completion: @escaping (Result<Void, Error>) -> Void)
+    func addComment(userId: Int, text: String, completion: @escaping EmptyCompletion)
+    func deleteComment(commentId: Int, completion: @escaping EmptyCompletion)
 }
 
 final class CommentsDataOperationsImpl: CommentsDataOperations {
@@ -27,7 +27,7 @@ final class CommentsDataOperationsImpl: CommentsDataOperations {
     }
     
 // MARK: - addComment -
-    func addComment(userId: Int, text: String, completion: @escaping (Result<Void, Error>) -> Void) {
+    func addComment(userId: Int, text: String, completion: @escaping EmptyCompletion) {
         let request = AddCommentRequestOperation(userId: userId, text: text)
         let parse = AddCommentParseOperation { result in
             OperationQueue.main.addOperation {
@@ -38,7 +38,7 @@ final class CommentsDataOperationsImpl: CommentsDataOperations {
     }
     
 // MARK: - deleteComment -
-    func deleteComment(commentId: Int, completion: @escaping (Result<Void, Error>) -> Void) {
+    func deleteComment(commentId: Int, completion: @escaping EmptyCompletion) {
         let request = DeleteCommentRequestOperation(commentId: commentId)
         let parse = DeleteCommentParseOperation { result in
             OperationQueue.main.addOperation {

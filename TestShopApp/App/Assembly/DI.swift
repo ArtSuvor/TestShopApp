@@ -12,6 +12,12 @@ final class DI {
         makeViewController(flow: .auth)
     }
     
+    func makeTabBarController() -> UITabBarController {
+        TabBarController(mainVC: self.mainViewController,
+                         profileVC: self.profileViewController)
+    }
+    
+// MARK: - Private  -
     private var authDataOperations: AuthDataOperation {
         makeAuthDataOperations()
     }
@@ -26,11 +32,6 @@ final class DI {
     
     private var mainViewController: UIViewController {
         makeViewController(flow: .main)
-    }
-    
-    func makeTabBarController() -> UITabBarController {
-        TabBarController(mainVC: self.mainViewController,
-                         profileVC: self.profileViewController)
     }
 }
 

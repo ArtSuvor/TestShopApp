@@ -7,6 +7,8 @@
 
 import Foundation
 
+typealias EmptyCompletion = (Result<Void, Error>) -> Void
+
 protocol AddingOperations {
     var operationQueue: OperationQueue { get }
     func addingOperations<T: Operation, U: Operation>(request: T, parse: U)
