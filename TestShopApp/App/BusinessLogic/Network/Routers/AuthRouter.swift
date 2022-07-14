@@ -65,4 +65,3 @@ enum AuthRouter: URLRequestConvertible {
         return try JSONEncoding.default.encode(request, with: parameters)
     }
 }
-

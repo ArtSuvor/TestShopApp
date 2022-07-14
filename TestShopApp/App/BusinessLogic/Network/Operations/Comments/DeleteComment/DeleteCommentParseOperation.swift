@@ -8,10 +8,10 @@
 import Foundation
 
 final class DeleteCommentParseOperation: Operation {
-    private let completion: (Result<Void, Error>) -> Void
+    private let completion: EmptyCompletion
     
 // MARK: - Init -
-    init(completion: @escaping (Result<Void, Error>) -> Void) {
+    init(completion: @escaping EmptyCompletion) {
         self.completion = completion
     }
     

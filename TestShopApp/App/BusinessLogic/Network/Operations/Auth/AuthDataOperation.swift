@@ -9,9 +9,9 @@ import Foundation
 
 protocol AuthDataOperation: AddingOperations, AnyObject {
     func login(login: String, password: String, completion: @escaping (Result<User, Error>) -> Void)
-    func register(request: RegisterRequest, completion: @escaping (Result<Void, Error>) -> Void)
-    func changeUserData(request: ChangeUserDataRequest, completion: @escaping (Result<Void, Error>) -> Void)
-    func logout(userId: Int, completion: @escaping (Result<Void, Error>) -> Void)
+    func register(request: RegisterRequest, completion: @escaping EmptyCompletion)
+    func changeUserData(request: ChangeUserDataRequest, completion: @escaping EmptyCompletion)
+    func logout(userId: Int, completion: @escaping EmptyCompletion)
 }
 
 final class AuthDataOperationImpl: AuthDataOperation {
@@ -28,7 +28,7 @@ final class AuthDataOperationImpl: AuthDataOperation {
     }
     
 // MARK: - Logout -
-    func logout(userId: Int, completion: @escaping (Result<Void, Error>) -> Void) {
+    func logout(userId: Int, completion: @escaping EmptyCompletion) {
         let request = LogoutRequestOperation(userId: userId)
         let parse = LogoutParseOperation { result in
             OperationQueue.main.addOperation {
@@ -39,7 +39,7 @@ final class AuthDataOperationImpl: AuthDataOperation {
     }
     
 // MARK: - Register -
-    func register(request: RegisterRequest, completion: @escaping (Result<Void, Error>) -> Void) {
+    func register(request: RegisterRequest, completion: @escaping EmptyCompletion) {
         let request = RegisterRequestOperation(requestParameters: request)
         let parse = RegisterParseOperation { result in
             OperationQueue.main.addOperation {
@@ -50,7 +50,7 @@ final class AuthDataOperationImpl: AuthDataOperation {
     }
     
 // MARK: - ChangeUserData -
-    func changeUserData(request: ChangeUserDataRequest, completion: @escaping (Result<Void, Error>) -> Void) {
+    func changeUserData(request: ChangeUserDataRequest, completion: @escaping EmptyCompletion) {
         let request = ChangeDataRequestOperation(requestParameters: request)
         let parse = ChangeDataParseOperation { result in
             OperationQueue.main.addOperation {
