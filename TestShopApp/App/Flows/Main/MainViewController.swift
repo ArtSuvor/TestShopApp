@@ -27,6 +27,7 @@ final class MainViewController: UIViewController {
     
 // MARK: - Properties -
     var output: MainViewOutput!
+    weak var detailViewInput: DetailInfoViewInput?
     private var products: [ProductModel] = []
 
 // MARK: - Life cycle -
@@ -40,6 +41,7 @@ final class MainViewController: UIViewController {
         self.title = "Products"
         self.view.backgroundColor = .white
         self.view.addSubview(tableView)
+        self.detailViewInput = detailView
         
         let safeArea = self.view.safeAreaLayoutGuide
         NSLayoutConstraint.activate([
@@ -60,7 +62,7 @@ final class MainViewController: UIViewController {
             self.detailView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
             self.detailView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
             self.detailView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor),
-            self.detailView.heightAnchor.constraint(equalToConstant: self.view.frame.height / 2)])
+            self.detailView.heightAnchor.constraint(equalToConstant: self.view.frame.height / 1.5)])
     }
     
     private func hideDeteailView() {
@@ -78,11 +80,19 @@ extension MainViewController: MainViewInput {
     func didLoadDetailInfoProduct(item: ProductModel) {
         self.detailView.configure(prod: item)
     }
+    
+    func didloadComments(items: [CommentModel]) {
+        self.detailViewInput?.didLoadComments(items: items)
+    }
 }
 
 extension MainViewController: DetailInfoViewOutput {
     func didTapCloseButton() {
         self.hideDeteailView()
+    }
+    
+    func didTapAddButton() {
+        
     }
 }
 
@@ -104,7 +114,9 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let id = products[indexPath.row].id ?? 0
         self.showDetailView()
-        self.output.loadDetailInfoProduct(id: products[indexPath.row].id ?? 0)
+        self.output.loadDetailInfoProduct(id: id)
+        self.output.loadComments(id: id)
     }
 }
