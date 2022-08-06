@@ -19,11 +19,15 @@ final class DI {
     
 // MARK: - Private  -
     private var authDataOperations: AuthDataOperation {
-        makeAuthDataOperations()
+        AuthDataOperationImpl()
     }
     
     private var shopDataOperations: ShopDataOperations {
-        makeShopDataOperations()
+        ShopDataOperationsImpl()
+    }
+    
+    private var commentsOperations: CommentsDataOperations {
+        CommentsDataOperationsImpl()
     }
     
     private var profileViewController: UIViewController {
@@ -54,16 +58,8 @@ extension DI {
                 return ProfileAssembly.assemble(operation: self.authDataOperations,
                                                 di: self).view
             case .main:
-                return MainAssembly.assemble(operations: self.shopDataOperations).view
+                return MainAssembly.assemble(shopOperations: self.shopDataOperations,
+                                             commentsOperations: self.commentsOperations).view
         }
-    }
-    
-// MARK: - Make Operations -
-    private func makeAuthDataOperations() -> AuthDataOperation {
-        AuthDataOperationImpl()
-    }
-    
-    private func makeShopDataOperations() -> ShopDataOperations {
-        ShopDataOperationsImpl()
     }
 }

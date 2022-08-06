@@ -10,17 +10,19 @@ import Foundation
 
 final class MainInteractor {
     weak var output: MainInteractorOutput!
-    private let operations: ShopDataOperations
+    private let shopOperations: ShopDataOperations
+    private let commentsOperations: CommentsDataOperations
 
-    init(operations: ShopDataOperations) {
-        self.operations = operations
+    init(shop: ShopDataOperations, comments: CommentsDataOperations) {
+        self.shopOperations = shop
+        self.commentsOperations = comments
     }
 }
 
 // MARK: - MainInteractorInput
 extension MainInteractor: MainInteractorInput {
     func loadProducts(page: Int, categoryId: Int) {
-        self.operations.loadProducts(page: page, categoryId: categoryId) { result in
+        self.shopOperations.loadProducts(page: page, categoryId: categoryId) { result in
             switch result {
                 case let .success(response):
                     self.output.didLoadProducts(item: response)
@@ -31,10 +33,21 @@ extension MainInteractor: MainInteractorInput {
     }
     
     func loadDetailInfoProduct(id: Int) {
-        self.operations.loadDetailInfoProduct(id: id) { result in
+        self.shopOperations.loadDetailInfoProduct(id: id) { result in
             switch result {
                 case let .success(item):
                     self.output.didLoadDetailInfoProduct(item: item)
+                case let .failure(error):
+                    print(error)
+            }
+        }
+    }
+    
+    func loadComments(id: Int) {
+        self.commentsOperations.getAllComments(productId: id) { result in
+            switch result {
+                case let .success(items):
+                    self.output.didloadComments(items: items)
                 case let .failure(error):
                     print(error)
             }

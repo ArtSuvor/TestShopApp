@@ -11,12 +11,17 @@ import Foundation
 final class MainPresenter {
     weak var view: MainViewInput!
     var interactor: MainInteractorInput!
-
+    
     init() { }
 }
 
 // MARK: - MainViewOutput
 extension MainPresenter: MainViewOutput {
+    
+    func loadComments(id: Int) {
+        self.interactor.loadComments(id: id)
+    }
+    
     func loadProducts(page: Int, categoryId: Int) {
         self.interactor.loadProducts(page: page, categoryId: categoryId)
     }
@@ -28,6 +33,10 @@ extension MainPresenter: MainViewOutput {
 
 // MARK: - MainInteractorOutput
 extension MainPresenter: MainInteractorOutput {
+    func didloadComments(items: [CommentModel]) {
+        self.view.didloadComments(items: items)
+    }
+    
     func didLoadProducts(item: [ProductResponse]) {
         let products = item.map {
             ProductModel(id: $0.id,
