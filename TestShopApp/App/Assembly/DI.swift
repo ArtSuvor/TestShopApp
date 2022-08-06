@@ -13,8 +13,9 @@ final class DI {
     }
     
     func makeTabBarController() -> UITabBarController {
-        TabBarController(mainVC: self.mainViewController,
-                         profileVC: self.profileViewController)
+        TabBarController(mainVC: self.makeViewController(flow: .main),
+                         profileVC: self.makeViewController(flow: .profile),
+                         basketVC: self.makeViewController(flow: .basket))
     }
     
 // MARK: - Private  -
@@ -29,14 +30,6 @@ final class DI {
     private var commentsOperations: CommentsDataOperations {
         CommentsDataOperationsImpl()
     }
-    
-    private var profileViewController: UIViewController {
-        makeViewController(flow: .profile)
-    }
-    
-    private var mainViewController: UIViewController {
-        makeViewController(flow: .main)
-    }
 }
 
 // MARK: - Private enum -
@@ -45,6 +38,7 @@ extension DI {
         case auth
         case profile
         case main
+        case basket
     }
 }
 
@@ -60,6 +54,8 @@ extension DI {
             case .main:
                 return MainAssembly.assemble(shopOperations: self.shopDataOperations,
                                              commentsOperations: self.commentsOperations).view
+            case .basket:
+                return BasketAssembly.assemble().view
         }
     }
 }
