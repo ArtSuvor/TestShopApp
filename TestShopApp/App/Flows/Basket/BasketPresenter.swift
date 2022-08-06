@@ -19,9 +19,13 @@ final class BasketPresenter {
 // MARK: - BasketViewOutput
 extension BasketPresenter: BasketViewOutput {
     func viewIsReady() {
+        self.interactor.getBasketProducts()
     }
 }
 
 // MARK: - BasketInteractorOutput
 extension BasketPresenter: BasketInteractorOutput {
+    func didLoadBasketProducts(items: [BasketProduct]) {
+        self.view.didLoadBasketProducts(items: items)
+    }
 }

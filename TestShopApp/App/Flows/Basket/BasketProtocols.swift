@@ -10,9 +10,11 @@ import Foundation
 
 // MARK: Interactor
 protocol BasketInteractorInput: AnyObject {
+    func getBasketProducts()
 }
 
 protocol BasketInteractorOutput: AnyObject {
+    func didLoadBasketProducts(items: [BasketProduct])
 }
 
 // MARK: - Router
@@ -21,6 +23,7 @@ protocol BasketRouterInput: AnyObject {
 
 // MARK: View Controller
 protocol BasketViewInput: AnyObject {
+    func didLoadBasketProducts(items: [BasketProduct])
 }
 
 protocol BasketViewOutput: AnyObject {

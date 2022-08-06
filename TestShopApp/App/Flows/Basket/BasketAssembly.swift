@@ -15,10 +15,10 @@ final class BasketAssembly {
         self.view = view
     }
 
-    static func assemble() -> BasketAssembly {
+    static func assemble(operations: BasketDataOperation) -> BasketAssembly {
         let view = BasketViewController()
         let presenter = BasketPresenter()
-        let interactor = BasketInteractor()
+        let interactor = BasketInteractor(operations: operations)
         let router = BasketRouter()
 
         view.output = presenter

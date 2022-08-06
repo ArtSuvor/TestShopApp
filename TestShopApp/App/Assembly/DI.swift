@@ -19,17 +19,10 @@ final class DI {
     }
     
 // MARK: - Private  -
-    private var authDataOperations: AuthDataOperation {
-        AuthDataOperationImpl()
-    }
-    
-    private var shopDataOperations: ShopDataOperations {
-        ShopDataOperationsImpl()
-    }
-    
-    private var commentsOperations: CommentsDataOperations {
-        CommentsDataOperationsImpl()
-    }
+    private var authDataOperations: AuthDataOperation { AuthDataOperationImpl() }
+    private var shopDataOperations: ShopDataOperations { ShopDataOperationsImpl() }
+    private var commentsOperations: CommentsDataOperations { CommentsDataOperationsImpl() }
+    private var basketOperations: BasketDataOperation { BasketDataOperationImpl() }
 }
 
 // MARK: - Private enum -
@@ -55,7 +48,7 @@ extension DI {
                 return MainAssembly.assemble(shopOperations: self.shopDataOperations,
                                              commentsOperations: self.commentsOperations).view
             case .basket:
-                return BasketAssembly.assemble().view
+                return BasketAssembly.assemble(operations: self.basketOperations).view
         }
     }
 }

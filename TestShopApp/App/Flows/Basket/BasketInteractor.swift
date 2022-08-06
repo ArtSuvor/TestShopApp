@@ -10,11 +10,23 @@ import Foundation
 
 final class BasketInteractor {
     weak var output: BasketInteractorOutput!
+    private let operations: BasketDataOperation
 
-    init() {
+    init(operations: BasketDataOperation) {
+        self.operations = operations
     }
 }
 
 // MARK: - BasketInteractorInput
 extension BasketInteractor: BasketInteractorInput {
+    func getBasketProducts() {
+        self.operations.getAllBasketProducts { result in
+            switch result {
+                case let .success(items):
+                    self.output.didLoadBasketProducts(items: items)
+                case let .failure(error):
+                    print(error)
+            }
+        }
+    }
 }
