@@ -26,10 +26,10 @@ class TabBarController: UITabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    
         viewControllers = setViewControllers(first: self.mainVC,
                                              second: self.profileVC,
                                              third: self.basketVC)
+        view.accessibilityIdentifier = "mainTabBarView"
         tabBar.tintColor = #colorLiteral(red: 0.5568627451, green: 0.3529411765, blue: 0.968627451, alpha: 1)
         tabBar.backgroundColor = .white
     }

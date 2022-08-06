@@ -191,7 +191,7 @@ final class ChangeUserDataView: UIView {
         generalStack.translatesAutoresizingMaskIntoConstraints = false
         self.translatesAutoresizingMaskIntoConstraints = false
         self.registrationButton.translatesAutoresizingMaskIntoConstraints = false
-        
+        self.accessibilityIdentifier = self.isRegister ? "registerView" : "changeDataView"
         self.addSubview(generalStack)
         self.addSubview(registrationButton)
         self.setConstraints(generalStack: generalStack)
