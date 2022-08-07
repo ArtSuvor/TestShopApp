@@ -41,6 +41,7 @@ final class LoginView: UIView {
         t.textColor = .black
         t.borderStyle = .roundedRect
         t.font = UIFont.systemFont(ofSize: 15)
+        t.accessibilityIdentifier = "loginTextField"
         return t
     }()
     
@@ -59,6 +60,8 @@ final class LoginView: UIView {
         t.textColor = .black
         t.borderStyle = .roundedRect
         t.font = UIFont.systemFont(ofSize: 15)
+        t.isSecureTextEntry = true
+        t.accessibilityIdentifier = "passwordTextField"
         return t
     }()
     
@@ -70,6 +73,7 @@ final class LoginView: UIView {
         b.backgroundColor = .lightGray
         b.layer.masksToBounds = true
         b.layer.cornerRadius = 15
+        b.accessibilityIdentifier = "signInButton"
         return b
     }()
     
@@ -81,6 +85,7 @@ final class LoginView: UIView {
         b.backgroundColor = .lightGray
         b.layer.masksToBounds = true
         b.layer.cornerRadius = 15
+        b.accessibilityIdentifier = "signUpButton"
         return b
     }()
     
@@ -107,6 +112,7 @@ final class LoginView: UIView {
                      signInButton,
                      signUpButton]
         
+        self.accessibilityIdentifier = "loginView"
         self.translatesAutoresizingMaskIntoConstraints = false
         self.backView.translatesAutoresizingMaskIntoConstraints = false
         views.forEach { $0.translatesAutoresizingMaskIntoConstraints = false }

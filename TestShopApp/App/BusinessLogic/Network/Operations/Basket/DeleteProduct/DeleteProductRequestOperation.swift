@@ -22,7 +22,7 @@ final class DeleteProductRequestOperation: AsyncOperation {
     
 // MARK: - Override -
     override func main() {
-        request = AF.request(BasketRouter.deleteProduct(id: self.id)).response(queue: .global()) {[weak self] response in
+        request = AF.request(BasketRequestRouter.deleteProduct(id: self.id)).response(queue: .global()) {[weak self] response in
             guard let self = self else { return }
             
             self.data = response.data

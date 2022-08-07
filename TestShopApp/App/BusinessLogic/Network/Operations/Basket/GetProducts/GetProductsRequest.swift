@@ -1,28 +1,21 @@
 //
-//  AddProductRequestOperation.swift
+//  GetProductsRequest.swift
 //  TestShopApp
 //
-//  Created by Art on 09.07.2022.
+//  Created by Art on 06.08.2022.
 //
 
 import Foundation
 import Alamofire
 
-final class AddProductRequestOperation: AsyncOperation {
-    private let id: Int
-    
+final class GetProductsRequestOperation: AsyncOperation {
     private var request: DataRequest?
     private var data: Data?
     private var error: Error?
     
-// MARK: - Init -
-    init(id: Int) {
-        self.id = id
-    }
-    
 // MARK: - Override -
     override func main() {
-        request = AF.request(BasketRequestRouter.addProduct(id: self.id)).response(queue: .global()) {[weak self] response in
+        request = AF.request(BasketRequestRouter.getAllProducts).response(queue: .global()) {[weak self] response in
             guard let self = self else { return }
             
             self.data = response.data

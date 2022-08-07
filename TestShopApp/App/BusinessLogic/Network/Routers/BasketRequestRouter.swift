@@ -1,5 +1,5 @@
 //
-//  BasketRouter.swift
+//  BasketRequestRouter.swift
 //  TestShopApp
 //
 //  Created by Art on 09.07.2022.
@@ -8,22 +8,27 @@
 import Foundation
 import Alamofire
 
-enum BasketRouter: URLRequestConvertible {
+enum BasketRequestRouter: URLRequestConvertible {
     case addProduct(id: Int)
     case deleteProduct(id: Int)
+    case getAllProducts
     
     private var url: URL {
         URL(string: "https://testmockserver.herokuapp.com")!
     }
     
     private var method: HTTPMethod {
-        .post
+        switch self {
+            case .getAllProducts: return .get
+            default: return .post
+        }
     }
     
     private var path: String {
         switch self {
             case .addProduct: return "/addProduct"
             case .deleteProduct: return "/deleteProduct"
+            case .getAllProducts: return "/basketProduct"
         }
     }
     
@@ -32,6 +37,7 @@ enum BasketRouter: URLRequestConvertible {
             case let .addProduct(id),
                     let .deleteProduct(id):
                 return ["productId" : id]
+            case .getAllProducts: return [:]
         }
     }
     
@@ -40,6 +46,8 @@ enum BasketRouter: URLRequestConvertible {
         var request = URLRequest(url: url)
         request.method = method
         
-        return try JSONEncoding.default.encode(request, with: parameters)
+        return try method == .post
+        ? JSONEncoding.default.encode(request, with: parameters)
+        : URLEncoding.default.encode(request, with: parameters)
     }
 }
