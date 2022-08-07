@@ -11,9 +11,11 @@ import Foundation
 final class ProfileInteractor {
     weak var output: ProfileInteractorOutput!
     private let operation: AuthDataOperation!
+    private let analyticsReporter: AnalyticReporter
 
-    init(operation: AuthDataOperation) {
+    init(operation: AuthDataOperation, analyticsReporter: AnalyticReporter) {
         self.operation = operation
+        self.analyticsReporter = analyticsReporter
     }
 }
 
@@ -25,7 +27,7 @@ extension ProfileInteractor: ProfileInteractorInput {
                 case .success:
                     self?.output.didLogout()
                 case let .failure(error):
-                    print(error.localizedDescription)
+                    self?.analyticsReporter.reportEvent(.error(error.localizedDescription))
             }
         }
     }
@@ -34,11 +36,14 @@ extension ProfileInteractor: ProfileInteractorInput {
         operation.changeUserData(request: request) {[weak self] result in
             switch result {
                 case .success:
-                    print("Success")
                     self?.output.didChangeUserData()
                 case let .failure(error):
-                    print(error.localizedDescription)
+                    self?.analyticsReporter.reportEvent(.error(error.localizedDescription))
             }
         }
+    }
+    
+    func reportEvent(_ event: AnalyticEvents) {
+        self.analyticsReporter.reportEvent(event)
     }
 }

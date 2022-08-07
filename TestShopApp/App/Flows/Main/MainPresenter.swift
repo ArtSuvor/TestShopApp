@@ -17,6 +17,14 @@ final class MainPresenter {
 
 // MARK: - MainViewOutput
 extension MainPresenter: MainViewOutput {
+    func viewIsReady() {
+        let nameVC = String(describing: MainViewController.self)
+        self.interactor.reportEvent(.openVC(nameVC))
+    }
+    
+    func reportEventOpenDetailProductInfo(name: String) {
+        self.interactor.reportEvent(.openDetailInfo(name))
+    }
     
     func loadComments(id: Int) {
         self.interactor.loadComments(id: id)

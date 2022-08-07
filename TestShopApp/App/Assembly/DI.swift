@@ -23,6 +23,7 @@ final class DI {
     private var shopDataOperations: ShopDataOperations { ShopDataOperationsImpl() }
     private var commentsOperations: CommentsDataOperations { CommentsDataOperationsImpl() }
     private var basketOperations: BasketDataOperation { BasketDataOperationImpl() }
+    private var analyticsReporter: AnalyticReporter { AnalyticReporterImpl() }
 }
 
 // MARK: - Private enum -
@@ -40,13 +41,17 @@ extension DI {
     private func makeViewController(flow: Flows) -> UIViewController {
         switch flow {
             case .auth:
-                return AuthAssembly.assemble(operation: self.authDataOperations, di: self).view
+                return AuthAssembly.assemble(operation: self.authDataOperations,
+                                             analyticsReporter: self.analyticsReporter,
+                                             di: self).view
             case .profile:
                 return ProfileAssembly.assemble(operation: self.authDataOperations,
-                                                di: self).view
+                                                di: self,
+                                                analyticsReporter: self.analyticsReporter).view
             case .main:
                 return MainAssembly.assemble(shopOperations: self.shopDataOperations,
-                                             commentsOperations: self.commentsOperations).view
+                                             commentsOperations: self.commentsOperations,
+                                             analyticsReporter: self.analyticsReporter).view
             case .basket:
                 return BasketAssembly.assemble(operations: self.basketOperations).view
         }

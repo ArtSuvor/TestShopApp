@@ -12,6 +12,7 @@ import Foundation
 protocol ProfileInteractorInput: AnyObject {
     func logout(userId: Int)
     func changeUserData(request: ChangeUserDataRequest)
+    func reportEvent(_ event: AnalyticEvents)
 }
 
 protocol ProfileInteractorOutput: AnyObject {
@@ -25,6 +26,7 @@ protocol ProfileViewInput: AnyObject {
 }
 
 protocol ProfileViewOutput: AnyObject {
+    func viewIsReady()
     func logout()
     func changeUserData()
     func loginChanged(text: String)

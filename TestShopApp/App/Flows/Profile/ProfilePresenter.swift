@@ -24,8 +24,14 @@ final class ProfilePresenter {
 
 // MARK: - ProfileViewOutput
 extension ProfilePresenter: ProfileViewOutput {
+    func viewIsReady() {
+        let nameVC = String(describing: ProfileViewController.self)
+        self.interactor.reportEvent(.openVC(nameVC))
+    }
+    
     func logout() {
         interactor.logout(userId: 123)
+        interactor.reportEvent(.logOut(123))
     }
     
     func changeUserData() {

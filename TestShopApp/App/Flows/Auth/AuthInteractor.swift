@@ -12,9 +12,11 @@ import Alamofire
 final class AuthInteractor {
     weak var output: AuthInteractorOutput!
     private let operation: AuthDataOperation!
+    private let analyticsReporter: AnalyticReporter!
 
-    init(operation: AuthDataOperation) {
+    init(operation: AuthDataOperation, analyticsReporter: AnalyticReporter) {
         self.operation = operation
+        self.analyticsReporter = analyticsReporter
     }
 }
 
@@ -24,10 +26,10 @@ extension AuthInteractor: AuthInteractorInput {
         operation.login(login: login, password: password) {[weak self] result in
             switch result {
                 case let .success(user):
-                    print(user)
                     self?.output.didLogin()
+                    self?.analyticsReporter.reportEvent(.signIn(user.name))
                 case let .failure(error):
-                    print(error.localizedDescription)
+                    self?.analyticsReporter.reportEvent(.error(error.localizedDescription))
             }
         }
     }
@@ -37,8 +39,9 @@ extension AuthInteractor: AuthInteractorInput {
             switch result {
                 case .success:
                     self?.output.didRegister()
+                    self?.analyticsReporter.reportEvent(.signUp(request.userName))
                 case let .failure(error):
-                    print(error.localizedDescription)
+                    self?.analyticsReporter.reportEvent(.error(error.localizedDescription))
             }
         }
     }
