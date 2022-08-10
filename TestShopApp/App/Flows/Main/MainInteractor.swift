@@ -12,45 +12,51 @@ final class MainInteractor {
     weak var output: MainInteractorOutput!
     private let shopOperations: ShopDataOperations
     private let commentsOperations: CommentsDataOperations
+    private let analyticsReporter: AnalyticReporter
 
-    init(shop: ShopDataOperations, comments: CommentsDataOperations) {
+    init(shop: ShopDataOperations, comments: CommentsDataOperations, analyticsReporter: AnalyticReporter) {
         self.shopOperations = shop
         self.commentsOperations = comments
+        self.analyticsReporter = analyticsReporter
     }
 }
 
 // MARK: - MainInteractorInput
 extension MainInteractor: MainInteractorInput {
     func loadProducts(page: Int, categoryId: Int) {
-        self.shopOperations.loadProducts(page: page, categoryId: categoryId) { result in
+        self.shopOperations.loadProducts(page: page, categoryId: categoryId) {[weak self] result in
             switch result {
                 case let .success(response):
-                    self.output.didLoadProducts(item: response)
+                    self?.output.didLoadProducts(item: response)
                 case let .failure(error):
-                    print(error)
+                    self?.analyticsReporter.reportEvent(.error(error.localizedDescription))
             }
         }
     }
     
     func loadDetailInfoProduct(id: Int) {
-        self.shopOperations.loadDetailInfoProduct(id: id) { result in
+        self.shopOperations.loadDetailInfoProduct(id: id) {[weak self] result in
             switch result {
                 case let .success(item):
-                    self.output.didLoadDetailInfoProduct(item: item)
+                    self?.output.didLoadDetailInfoProduct(item: item)
                 case let .failure(error):
-                    print(error)
+                    self?.analyticsReporter.reportEvent(.error(error.localizedDescription))
             }
         }
     }
     
     func loadComments(id: Int) {
-        self.commentsOperations.getAllComments(productId: id) { result in
+        self.commentsOperations.getAllComments(productId: id) {[weak self] result in
             switch result {
                 case let .success(items):
-                    self.output.didloadComments(items: items)
+                    self?.output.didloadComments(items: items)
                 case let .failure(error):
-                    print(error)
+                    self?.analyticsReporter.reportEvent(.error(error.localizedDescription))
             }
         }
+    }
+    
+    func reportEvent(_ event: AnalyticEvents) {
+        self.analyticsReporter.reportEvent(event)
     }
 }
