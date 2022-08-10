@@ -1,0 +1,92 @@
+{
+  "kind": "Root",
+  "name": "TopLevel",
+  "printedName": "TopLevel",
+  "children": [
+    {
+      "kind": "TypeDecl",
+      "name": "TestShopApp",
+      "printedName": "TestShopApp",
+      "children": [
+        {
+          "kind": "Var",
+          "name": "text",
+          "printedName": "text",
+          "children": [
+            {
+              "kind": "TypeNominal",
+              "name": "String",
+              "printedName": "Swift.String",
+              "usr": "s:SS"
+            }
+          ],
+          "declKind": "Var",
+          "usr": "s:11TestShopAppAAV4textSSvp",
+          "mangledName": "$s11TestShopAppAAV4textSSvp",
+          "moduleName": "TestShopApp",
+          "declAttributes": [
+            "HasInitialValue",
+            "HasStorage",
+            "SetterAccess",
+            "AccessControl"
+          ],
+          "fixedbinaryorder": 0,
+          "hasStorage": true,
+          "accessors": [
+            {
+              "kind": "Accessor",
+              "name": "Get",
+              "printedName": "Get()",
+              "children": [
+                {
+                  "kind": "TypeNominal",
+                  "name": "String",
+                  "printedName": "Swift.String",
+                  "usr": "s:SS"
+                }
+              ],
+              "declKind": "Accessor",
+              "usr": "s:11TestShopAppAAV4textSSvg",
+              "mangledName": "$s11TestShopAppAAV4textSSvg",
+              "moduleName": "TestShopApp",
+              "implicit": true,
+              "declAttributes": [
+                "Transparent"
+              ],
+              "accessorKind": "get"
+            }
+          ]
+        },
+        {
+          "kind": "Constructor",
+          "name": "init",
+          "printedName": "init()",
+          "children": [
+            {
+              "kind": "TypeNominal",
+              "name": "TestShopApp",
+              "printedName": "TestShopApp.TestShopApp",
+              "usr": "s:11TestShopAppAAV"
+            }
+          ],
+          "declKind": "Constructor",
+          "usr": "s:11TestShopAppAAVABycfc",
+          "mangledName": "$s11TestShopAppAAVABycfc",
+          "moduleName": "TestShopApp",
+          "declAttributes": [
+            "AccessControl"
+          ],
+          "init_kind": "Designated"
+        }
+      ],
+      "declKind": "Struct",
+      "usr": "s:11TestShopAppAAV",
+      "mangledName": "$s11TestShopAppAAV",
+      "moduleName": "TestShopApp",
+      "declAttributes": [
+        "AccessControl"
+      ]
+    }
+  ],
+  "json_format_version": 6
+}
