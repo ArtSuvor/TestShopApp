@@ -33,6 +33,7 @@ final class MainViewController: UIViewController {
 // MARK: - Life cycle -
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.output.viewIsReady()
         self.setupViews()
         self.output.loadProducts(page: 1, categoryId: 1)
     }
@@ -91,9 +92,7 @@ extension MainViewController: DetailInfoViewOutput {
         self.hideDeteailView()
     }
     
-    func didTapAddButton() {
-        
-    }
+    func didTapAddButton() {}
 }
 
 // MARK: - UITableViewDelegate/DataSource -
@@ -114,9 +113,10 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let id = products[indexPath.row].id ?? 0
+        let prod = products[indexPath.row]
         self.showDetailView()
-        self.output.loadDetailInfoProduct(id: id)
-        self.output.loadComments(id: id)
+        self.output.reportEventOpenDetailProductInfo(name: prod.name)
+        self.output.loadDetailInfoProduct(id: prod.id ?? 0)
+        self.output.loadComments(id: prod.id ?? 0)
     }
 }

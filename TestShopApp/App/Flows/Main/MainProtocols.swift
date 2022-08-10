@@ -13,6 +13,7 @@ protocol MainInteractorInput: AnyObject {
     func loadProducts(page: Int, categoryId: Int)
     func loadDetailInfoProduct(id: Int)
     func loadComments(id: Int)
+    func reportEvent(_ event: AnalyticEvents)
 }
 
 protocol MainInteractorOutput: AnyObject {
@@ -29,6 +30,8 @@ protocol MainViewInput: AnyObject {
 }
 
 protocol MainViewOutput: AnyObject {
+    func viewIsReady()
+    func reportEventOpenDetailProductInfo(name: String)
     func loadProducts(page: Int, categoryId: Int)
     func loadDetailInfoProduct(id: Int)
     func loadComments(id: Int)
