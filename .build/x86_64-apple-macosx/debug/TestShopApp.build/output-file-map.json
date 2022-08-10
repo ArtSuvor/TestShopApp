@@ -1,0 +1,11 @@
+{
+  "": {
+    "swift-dependencies": "/Users/art/Desktop/Пройденные проекты/UIKit/TestShopApp/.build/x86_64-apple-macosx/debug/TestShopApp.build/master.swiftdeps"
+  },
+  "/Users/art/Desktop/Пройденные проекты/UIKit/TestShopApp/Sources/TestShopApp/TestShopApp.swift": {
+    "dependencies": "/Users/art/Desktop/Пройденные проекты/UIKit/TestShopApp/.build/x86_64-apple-macosx/debug/TestShopApp.build/TestShopApp.d",
+    "object": "/Users/art/Desktop/Пройденные проекты/UIKit/TestShopApp/.build/x86_64-apple-macosx/debug/TestShopApp.build/TestShopApp.swift.o",
+    "swiftmodule": "/Users/art/Desktop/Пройденные проекты/UIKit/TestShopApp/.build/x86_64-apple-macosx/debug/TestShopApp.build/TestShopApp~partial.swiftmodule",
+    "swift-dependencies": "/Users/art/Desktop/Пройденные проекты/UIKit/TestShopApp/.build/x86_64-apple-macosx/debug/TestShopApp.build/TestShopApp.swiftdeps"
+  }
+}
