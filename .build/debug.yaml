@@ -1,0 +1,78 @@
+client:
+  name: basic
+tools: {}
+targets:
+  "PackageStructure": ["<PackageStructure>"]
+  "TestShopApp-debug.module": ["<TestShopApp-debug.module>"]
+  "TestShopAppPackageTests-debug.test": ["<TestShopAppPackageTests-debug.test>"]
+  "TestShopAppTests-debug.module": ["<TestShopAppTests-debug.module>"]
+  "main": ["<TestShopApp-debug.module>"]
+  "test": ["<TestShopApp-debug.module>","<TestShopAppPackageTests-debug.test>","<TestShopAppTests-debug.module>"]
+default: "main"
+nodes:
+  "/Users/art/Desktop/Пройденные проекты/UIKit/TestShopApp/Sources/TestShopApp/":
+    is-directory-structure: true
+  "/Users/art/Desktop/Пройденные проекты/UIKit/TestShopApp/Tests/TestShopAppTests/":
+    is-directory-structure: true
+commands:
+  "<TestShopApp-debug.module>":
+    tool: phony
+    inputs: ["/Users/art/Desktop/Пройденные проекты/UIKit/TestShopApp/.build/x86_64-apple-macosx/debug/TestShopApp.build/TestShopApp.swift.o","/Users/art/Desktop/Пройденные проекты/UIKit/TestShopApp/.build/x86_64-apple-macosx/debug/TestShopApp.swiftmodule"]
+    outputs: ["<TestShopApp-debug.module>"]
+
+  "<TestShopAppPackageTests-debug.test>":
+    tool: phony
+    inputs: ["/Users/art/Desktop/Пройденные проекты/UIKit/TestShopApp/.build/x86_64-apple-macosx/debug/TestShopAppPackageTests.xctest/Contents/MacOS/TestShopAppPackageTests"]
+    outputs: ["<TestShopAppPackageTests-debug.test>"]
+
+  "<TestShopAppTests-debug.module>":
+    tool: phony
+    inputs: ["/Users/art/Desktop/Пройденные проекты/UIKit/TestShopApp/.build/x86_64-apple-macosx/debug/TestShopAppTests.build/TestShopAppTests.swift.o","/Users/art/Desktop/Пройденные проекты/UIKit/TestShopApp/.build/x86_64-apple-macosx/debug/TestShopAppTests.swiftmodule"]
+    outputs: ["<TestShopAppTests-debug.module>"]
+
+  "C.TestShopApp-debug.module":
+    tool: swift-compiler
+    inputs: ["/Users/art/Desktop/Пройденные проекты/UIKit/TestShopApp/Sources/TestShopApp/TestShopApp.swift"]
+    outputs: ["/Users/art/Desktop/Пройденные проекты/UIKit/TestShopApp/.build/x86_64-apple-macosx/debug/TestShopApp.build/TestShopApp.swift.o","/Users/art/Desktop/Пройденные проекты/UIKit/TestShopApp/.build/x86_64-apple-macosx/debug/TestShopApp.swiftmodule"]
+    executable: "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc"
+    module-name: "TestShopApp"
+    module-output-path: "/Users/art/Desktop/Пройденные проекты/UIKit/TestShopApp/.build/x86_64-apple-macosx/debug/TestShopApp.swiftmodule"
+    import-paths: ["/Users/art/Desktop/Пройденные проекты/UIKit/TestShopApp/.build/x86_64-apple-macosx/debug"]
+    temps-path: "/Users/art/Desktop/Пройденные проекты/UIKit/TestShopApp/.build/x86_64-apple-macosx/debug/TestShopApp.build"
+    objects: ["/Users/art/Desktop/Пройденные проекты/UIKit/TestShopApp/.build/x86_64-apple-macosx/debug/TestShopApp.build/TestShopApp.swift.o"]
+    other-args: ["-target","x86_64-apple-macosx10.10","-swift-version","5","-enable-batch-mode","-index-store-path","/Users/art/Desktop/Пройденные проекты/UIKit/TestShopApp/.build/x86_64-apple-macosx/debug/index/store","-Onone","-enable-testing","-g","-j8","-DSWIFT_PACKAGE","-DDEBUG","-module-cache-path","/Users/art/Desktop/Пройденные проекты/UIKit/TestShopApp/.build/x86_64-apple-macosx/debug/ModuleCache","-parseable-output","-parse-as-library","-emit-objc-header","-emit-objc-header-path","/Users/art/Desktop/Пройденные проекты/UIKit/TestShopApp/.build/x86_64-apple-macosx/debug/TestShopApp.build/TestShopApp-Swift.h","-color-diagnostics","-sdk","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk","-F","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks","-I","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib","-L","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib"]
+    sources: ["/Users/art/Desktop/Пройденные проекты/UIKit/TestShopApp/Sources/TestShopApp/TestShopApp.swift"]
+    is-library: true
+    enable-whole-module-optimization: false
+    num-threads: 8
+
+  "C.TestShopAppPackageTests-debug.test":
+    tool: shell
+    inputs: ["/Users/art/Desktop/Пройденные проекты/UIKit/TestShopApp/.build/x86_64-apple-macosx/debug/TestShopApp.build/TestShopApp.swift.o","/Users/art/Desktop/Пройденные проекты/UIKit/TestShopApp/.build/x86_64-apple-macosx/debug/TestShopAppTests.build/TestShopAppTests.swift.o"]
+    outputs: ["/Users/art/Desktop/Пройденные проекты/UIKit/TestShopApp/.build/x86_64-apple-macosx/debug/TestShopAppPackageTests.xctest/Contents/MacOS/TestShopAppPackageTests"]
+    description: "Linking ./.build/x86_64-apple-macosx/debug/TestShopAppPackageTests.xctest/Contents/MacOS/TestShopAppPackageTests"
+    args: ["/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc","-L","/Users/art/Desktop/Пройденные проекты/UIKit/TestShopApp/.build/x86_64-apple-macosx/debug","-o","/Users/art/Desktop/Пройденные проекты/UIKit/TestShopApp/.build/x86_64-apple-macosx/debug/TestShopAppPackageTests.xctest/Contents/MacOS/TestShopAppPackageTests","-module-name","TestShopAppPackageTests","-Xlinker","-bundle","-Xlinker","-rpath","-Xlinker","@loader_path/../../../","@/Users/art/Desktop/Пройденные проекты/UIKit/TestShopApp/.build/x86_64-apple-macosx/debug/TestShopAppPackageTests.product/Objects.LinkFileList","-Xlinker","-rpath","-Xlinker","/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx","-Xlinker","-rpath","-Xlinker","/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift-5.5/macosx","-target","x86_64-apple-macosx11.0","-Xlinker","-add_ast_path","-Xlinker","/Users/art/Desktop/Пройденные проекты/UIKit/TestShopApp/.build/x86_64-apple-macosx/debug/TestShopApp.swiftmodule","-Xlinker","-add_ast_path","-Xlinker","/Users/art/Desktop/Пройденные проекты/UIKit/TestShopApp/.build/x86_64-apple-macosx/debug/TestShopAppTests.swiftmodule","-sdk","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk","-F","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks","-I","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib","-L","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib","-L","/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib"]
+
+  "C.TestShopAppTests-debug.module":
+    tool: swift-compiler
+    inputs: ["/Users/art/Desktop/Пройденные проекты/UIKit/TestShopApp/Tests/TestShopAppTests/TestShopAppTests.swift","/Users/art/Desktop/Пройденные проекты/UIKit/TestShopApp/.build/x86_64-apple-macosx/debug/TestShopApp.swiftmodule"]
+    outputs: ["/Users/art/Desktop/Пройденные проекты/UIKit/TestShopApp/.build/x86_64-apple-macosx/debug/TestShopAppTests.build/TestShopAppTests.swift.o","/Users/art/Desktop/Пройденные проекты/UIKit/TestShopApp/.build/x86_64-apple-macosx/debug/TestShopAppTests.swiftmodule"]
+    executable: "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc"
+    module-name: "TestShopAppTests"
+    module-output-path: "/Users/art/Desktop/Пройденные проекты/UIKit/TestShopApp/.build/x86_64-apple-macosx/debug/TestShopAppTests.swiftmodule"
+    import-paths: ["/Users/art/Desktop/Пройденные проекты/UIKit/TestShopApp/.build/x86_64-apple-macosx/debug"]
+    temps-path: "/Users/art/Desktop/Пройденные проекты/UIKit/TestShopApp/.build/x86_64-apple-macosx/debug/TestShopAppTests.build"
+    objects: ["/Users/art/Desktop/Пройденные проекты/UIKit/TestShopApp/.build/x86_64-apple-macosx/debug/TestShopAppTests.build/TestShopAppTests.swift.o"]
+    other-args: ["-target","x86_64-apple-macosx11.0","-swift-version","5","-enable-batch-mode","-index-store-path","/Users/art/Desktop/Пройденные проекты/UIKit/TestShopApp/.build/x86_64-apple-macosx/debug/index/store","-Onone","-enable-testing","-g","-j8","-DSWIFT_PACKAGE","-DDEBUG","-module-cache-path","/Users/art/Desktop/Пройденные проекты/UIKit/TestShopApp/.build/x86_64-apple-macosx/debug/ModuleCache","-parseable-output","-parse-as-library","-color-diagnostics","-sdk","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk","-F","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks","-I","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib","-L","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib"]
+    sources: ["/Users/art/Desktop/Пройденные проекты/UIKit/TestShopApp/Tests/TestShopAppTests/TestShopAppTests.swift"]
+    is-library: true
+    enable-whole-module-optimization: false
+    num-threads: 8
+
+  "PackageStructure":
+    tool: package-structure-tool
+    inputs: ["/Users/art/Desktop/Пройденные проекты/UIKit/TestShopApp/Sources/TestShopApp/","/Users/art/Desktop/Пройденные проекты/UIKit/TestShopApp/Tests/TestShopAppTests/","/Users/art/Desktop/Пройденные проекты/UIKit/TestShopApp/Package.swift","/Users/art/Desktop/Пройденные проекты/UIKit/TestShopApp/Package.resolved"]
+    outputs: ["<PackageStructure>"]
+    description: "Planning build"
+    allow-missing-inputs: true
+
