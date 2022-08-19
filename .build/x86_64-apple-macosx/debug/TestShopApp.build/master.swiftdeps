@@ -1,6 +1,0 @@
-version: "Apple Swift version 5.6.1 (swiftlang-5.6.0.323.66 clang-1316.0.20.12)"
-options: "8f91f5c080ee05dfa082fbbdc06113a444cc9a4781f02ab54a8aa8fd08142ceb"
-build_start_time: [1660151821, 747908115]
-build_end_time: [1660151822, 581944942]
-inputs:
-  "/Users/art/Desktop/\u041F\u0440\u043E\u0438\u0306\u0434\u0435\u043D\u043D\u044B\u0435 \u043F\u0440\u043E\u0435\u043A\u0442\u044B/UIKit/TestShopApp/Sources/TestShopApp/TestShopApp.swift": [1660151777, 390561103]
