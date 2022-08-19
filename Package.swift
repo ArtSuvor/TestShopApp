@@ -7,8 +7,7 @@ let package = Package(
     name: "TestShopApp",
     defaultLocalization: "ru",
     platforms: [
-        .iOS(.v13),
-        .macOS(.v11)
+        .iOS(.v13)
     ],
     products: [
         .library(
