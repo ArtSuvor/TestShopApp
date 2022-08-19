@@ -10,7 +10,5 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-    - name: spm
-      run: fastlane run spm
     - name: Run tests
       run: bundle exec fastlane testLine
